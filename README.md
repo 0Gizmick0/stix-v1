@@ -206,7 +206,22 @@ python tools/champ.py document.pdf --mode images
 
 ## License
 
-STIX v1.1 is provided as-is for commercial and private use.
+STIX v1.1 is licensed under **AGPL-3.0** — free to use with flexibility for commercial projects.
+
+### What This Means
+
+**Free to use:**
+- Open-source projects (must remain open-source)
+- Personal/internal use
+- Educational use
+- Contributions to the community
+
+**Commercial/proprietary products:**
+- Keep your product open-source (AGPL-3.0 compliant), OR
+- Get a commercial license, OR
+- Reach out — we can work something out
+
+See [LICENSE](LICENSE) file for full terms.
 
 ---
 
