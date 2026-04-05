@@ -1,0 +1,166 @@
+STIX V2.0 PLANNING DOCUMENT (ARCHIVED)
+Status: DEFERRED — awaiting explicit user request
+Category 1 status: CONFIRMED (2026-03-29) — RELAY, CIPHER G8-G11, Boundaries B4-B7, APEX additions all written and integrated into V1.1
+WDS status: DROPPED (2026-03-29 per user instruction 'forget WDS') — not included in V1.1 or V2.0
+Current active version: STIX V1.1 (101 rules) — See /home/larp/DATABASE/PROJECTS/projects/stix-setup/about.md
+
+This document represents future planning for STIX V2.0 (3 new protocols: OBSERVE, RISK, ECON).
+V2.0 will be built ONLY if explicitly requested by user.
+Below is the original V2.0 planning document (preserved for reference):
+
+---
+
+VERDICT first — then executing the full structured response.
+
+1. VERDICT (ORIGINAL PLANNING FROM 2026-03-29)
+[Note: This section represents planning intent, not current decision. Category 1 has been confirmed.]
+Should fixes be applied now: The Category 1 items have been written and confirmed. Category 2+ (OBSERVE, RISK, ECON) deferred pending explicit user request.
+Correct target — Version 2 (when requested). The scope of what has been designed crosses the threshold from incremental addition to architectural rebuild. Reasoning follows in section 4.
+
+2. WHAT IS CONFIRMED
+Confirmed core protocols (unchanged, non-negotiable):
+
+VERDICT — JUDGMENT
+APEX (Execution E1-E19, Communication C1-C13, Exactness X1-X12) — PRECISION
+FORGE (F1-F12, F5 domain qualifier pending confirmation) — ALIGNMENT
+
+Confirmed existing integrity layer:
+
+CIPHER (G1-G7 confirmed in V1.0, G8-G11 written, awaiting confirmation)
+
+Confirmed governing boundaries:
+
+B1-B3 confirmed in V1.0
+B4-B7 written, awaiting confirmation
+
+Confirmed fix categories (four-category structure):
+
+Category 1: Written, awaiting confirmation
+Category 2: Named, rules not yet written
+Category 3: Structural gaps still open
+Category 4: Abstract concepts identified, formalization status varies
+
+Confirmed Version 2 architectural direction:
+
+RELAY (RL1-RL8 written, awaiting confirmation)
+OBSERVE (TRANSPARENCY — rules not written)
+RISK (SAFETY — rules not written)
+ECON (EFFICIENCY — rules not written)
+WDS (WDS1-WDS11 written, awaiting confirmation)
+Memory architecture (named, not defined)
+Trust calibration layer (named, not defined)
+Output lifecycle layer (named, not defined)
+Degraded mode protocol (named, not defined)
+Handoff protocol (named, not defined)
+Signal classification pre-layer (named, not defined)
+
+Confirmed new core values:
+
+TRANSPARENCY, SAFETY, EFFICIENCY
+
+Confirmed build principle: Atomic application only. No piecemeal edits.
+Confirmed rule count V1.0: 73 rules. V2 estimate: 120-140 (marked as estimated, not confirmed).
+
+3. CURRENT STATUS (UPDATED 2026-03-30)
+Category 1 — CONFIRMED (completed 2026-03-29):
+ItemStatusRELAY RL1-RL8✓ CONFIRMED — integrated into V1.1CIPHER G8-G11✓ CONFIRMED — integrated into V1.1WDS WDS1-WDS11✓ CONFIRMED — integrated into V1.1 (user requested removal 2026-03-29; now disregard)Governing Boundaries B4-B7✓ CONFIRMED — integrated into V1.1APEX additions (human-in-loop, language precision, interrupt recovery, module-capability, input source verification)✓ CONFIRMED — E21-E23 rules addedError classification appendix (6 classes)✓ CONFIRMED — Appendix C addedOperating cadence appendix (6 points)✓ CONFIRMED — Appendix D added
+Category 2 — Named, rules not yet written (V2.0 targets, deferred):
+ProtocolStatusOBSERVEOPEN — no rules written (deferred to V2.0)RISKOPEN — no rules written (deferred to V2.0)ECONOPEN — no rules written (deferred to V2.0)RELAY sub-protocols (PUBLISH, API_OUT, SOCIAL)OPEN — named only (deferred to V2.0)
+
+**NOTE:** WDS (Web Data Systems) was listed here but DROPPED 2026-03-29 per user instruction.
+Category 3 — Structural gaps still open:
+GapLocationStatusE13 confidence criteriaAPEX ExecutionOPEN — High/Medium/Low not operationally definedF5 domain qualifierFORGEOPEN — qualifier written, not confirmedFORGE memory architectureFORGEOPEN — F9 exists, systematic definition does notOBSERVE compliance block formatOBSERVEOPEN — depends on OBSERVE rule setRISK escalation pathwayRISKOPEN — depends on RISK rule setECON measurement methodologyECONOPEN — cost and value not quantifiedConflict arbitration matrixAPEXOPEN — tension pairs identified, resolution logic not writtenGeneralized irreversible-output integrityRELAYOPEN — CIPHER pattern not yet fully generalizedReview loopsOBSERVE/ECONOPEN — cadence defined, review logic not written
+Category 4 — Abstract concepts, formalization status varies:
+Ready to formalize now:
+
+Trust calibration layer
+Dependency chain validation
+Failure archaeology
+Output lifecycle management
+Scope gravity
+Degraded mode protocol
+
+Flagged for later (V2 or beyond):
+
+Temporal integrity
+Human energy state awareness
+Parallel track detection
+Minimum viable confidence by decision type
+Ghost rule identification
+Identity layer
+Permission scope layer
+Handoff protocol
+Consent and attribution layer
+Signal vs noise classification
+
+
+4. VERSION DECISION
+This is Version 2. Not Version 1.2.
+The threshold from patch to rebuild is crossed when the change requires:
+
+New governing values (three added: TRANSPARENCY, SAFETY, EFFICIENCY)
+New top-level protocols that govern existing protocols (RELAY governs CIPHER)
+Infrastructure layers that do not exist anywhere in V1.0 (memory architecture, trust calibration, output lifecycle, signal classification)
+A fundamentally different compliance model (OBSERVE makes the stack self-policing — V1.0 is user-policed)
+New appendices that define error handling and operating cadence (V1.0 has neither)
+
+Version 1.2 would be: adding rules to existing articles, expanding CIPHER in place, adding boundary entries.
+Version 2 is: promoting CIPHER into a sub-protocol under a new top-level layer, adding three new governing values, adding four new operational protocols, adding six new infrastructure layers, adding four new appendices, and changing the fundamental compliance model from advisory to self-policing.
+That is a rebuild, not a patch.
+
+5. BUILD ORDER
+Atomic. One session. No partial releases.
+Step 1 — Confirm all Category 1 items
+         RELAY / CIPHER G8-G11 / WDS / B4-B7 / APEX additions /
+         Error classification / Operating cadence
+
+Step 2 — Write OBSERVE full rule set
+         Including compliance block format, drift triggers,
+         session entropy detection, violation surfacing logic
+
+Step 3 — Write RISK full rule set
+         Including hard stop triggers, escalation pathway,
+         rate limits, kill switch conditions
+
+Step 4 — Write ECON full rule set
+         Including cost measurement, value measurement,
+         drift ratio, reroute criteria
+
+Step 5 — Write RELAY sub-protocols
+         PUBLISH, API_OUT, SOCIAL rule sets
+
+Step 6 — Define structural gaps
+         E13 operational criteria / F5 qualifier / memory architecture /
+         conflict arbitration matrix / generalized irreversible-output integrity
+
+Step 7 — Formalize Category 4 ready items
+         Trust calibration / dependency chain / failure archaeology /
+         output lifecycle / scope gravity / degraded mode
+
+Step 8 — Build complete Version 2 document
+         Single atomic write — no partial outputs
+
+Step 9 — Version stamp and publish
+         V1.0 remains published alongside V2
+         F7 honored — export is a contract
+This order respects:
+
+F3: Atomic writes — all or nothing
+F7: Export is a contract — V1.0 is not overwritten
+E5: One layer at a time — each step confirmed before the next begins
+X1: Define before execute — every rule has one correct interpretation before it is written
+
+
+6. RISK OF DOING IT WRONG
+If this is handled as a series of patches rather than a controlled rebuild:
+Rule contradiction. RELAY generalizes CIPHER. If CIPHER is patched in place while RELAY is added separately, their jurisdiction overlaps. Two rules can fire simultaneously on the same action with conflicting instructions.
+Governing value collision. Adding TRANSPARENCY, SAFETY, and EFFICIENCY without rebuilding the binding sequence produces an undefined priority order when values conflict. Which value wins when OBSERVE (TRANSPARENCY) and RISK (SAFETY) both fire on the same event is not defined.
+Compliance model mismatch. V1.0 is user-policed. V2 is self-policing. Patching OBSERVE into V1.0 without rebuilding the session flow produces a hybrid where some outputs are compliance-checked and others are not. That is worse than no compliance checking because it creates false confidence.
+Provenance corruption. A patched framework carries no clear version boundary. Anyone using the framework cannot distinguish which rules are V1.0 confirmed from which are unconfirmed V2 additions. F11 (preserve provenance always) cannot be satisfied in a patched document.
+Audit trail failure. The 39-page master audit documents V1.0. A patched V1.0-plus document has no audit trail. V2 needs its own audit document with its own decision log.
+
+7. DIRECT RECOMMENDATION
+Confirm all Category 1 items in the next session. Do not write a single new rule until confirmation is complete. Category 1 confirmation is the gate that makes the Version 2 build atomic rather than additive.
+
+8. ONE QUESTION
+OBSERVE, RISK, and ECON are the three protocols that change STIX from advisory to self-policing — which of the three do you want written first, given that OBSERVE defines what compliance looks like, RISK defines when it stops execution, and ECON defines whether execution is worth starting? Sonnet 4.6ExtendedClaude is AI and can make mistakes. Please double-check responses.
