@@ -1,55 +1,102 @@
 # STIX — AI Governance Framework
-## Version History: V1.1 (101 rules) + V2.0 OBSERVE (8 rules) + V2.1 Roadmap (RISK/ECON planned)
 
-**STIX** (Strategic Thinking and Integrity X) is a formal governance framework for AI agents and autonomous systems. It defines **109 rules across eight core protocols** to ensure judgment, precision, alignment, integrity, and transparency in decision-making.
+**STIX** = **S**trategic **T**hinking and **I**ntegrity **X**
 
-## What is STIX?
+A formal governance framework that defines **109 rules** for AI agents to ensure sound decisions, consistent execution, and integrity. Used in Claude Code, Claude.ai, ChatGPT, and custom AI systems.
 
-STIX is a **structured execution model** — not a suggestion or guideline, but a binding operational framework with:
+**Status:** V1.1 complete (101 rules) + V2.0 OBSERVE deployed (8 rules) + V2.1 roadmap (RISK/ECON planned)
 
-**Core Protocols (V1.1 — Complete: 101 rules):**
-- **VERDICT (7 rules):** Foundational values driving all decisions
-- **APEX (53 rules):** Execution discipline, communication clarity, exactness
-- **FORGE (13 rules):** State management and database integrity
-- **ARCHITECT (20 rules):** Strategic decomposition and critical path planning
-- **CIPHER (11 rules):** Irreversible commitment gates and security thresholds
+---
 
-**Operational Protocols:**
-- **OBSERVE (8 rules):** Transparency & compliance instrumentation [V2.0 — Complete]
-- **RISK (planned):** Safety thresholds & hard stops [V2.1 — Scheduled]
-- **ECON (planned):** Efficiency & cost-value measurement [V2.1 — Scheduled]
+## 🚀 Quick Start (3 Minutes)
 
-**Total: 109 rules (101 active + 8 OBSERVE deployed). RISK/ECON under development.**
+**No setup. No install. Just paste and go.**
 
-## The Problem STIX Solves
+```
+1. Download → CLAUDE.md (13KB, plain text)
+2. Paste → Into Claude.ai, ChatGPT, or your AI chat
+3. Upload → One PDF from CORE_PROTOCOL/ folder
+4. Ask → "Analyze using three-lens framework"
+5. Done → 109 rules are now active
+```
 
-**Without STIX:**
-- ❌ AI systems produce vague outputs ("This should work")
-- ❌ Failures caught AFTER execution (too late to fix)
-- ❌ No consistency across decisions (each prompt is different)
-- ❌ Edge cases handled ad-hoc (or not at all)
-- ❌ Complex projects spiral into endless iteration
+**That's it. Framework is live.**
 
-**With STIX:**
-- ✅ Errors caught BEFORE execution (mandatory gates)
-- ✅ Three-lens thinking prevents 80% of failures
-- ✅ Consistent decision-making across all tasks
-- ✅ Edge cases identified and handled upfront
-- ✅ Projects finish on budget, on time
+---
 
-**Real impact:** STIX prevents dead-end work before you start. Historically, this saves 40-60% of wasted tokens on failed approaches.
+## What STIX Does
 
-## Getting Started in 5 Minutes
+**Prevents failure BEFORE it happens.**
 
-**Fastest path:**
+Without STIX | With STIX
+---|---
+❌ "This should work" | ✅ "All 3 lenses agree → execute"
+❌ Failures discovered too late | ✅ Issues caught before action
+❌ Each decision is different | ✅ Consistent rules everywhere
+❌ Edge cases missed | ✅ Edge cases planned upfront
+❌ Over budget, over time | ✅ Projects finish on time/budget
 
-1. **Copy CLAUDE.md** (13KB text file)
-2. **Paste into Claude.ai chat** (or ChatGPT, Claude app, etc.)
-3. **Upload 1 PDF:** `CORE_PROTOCOL/APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_2026-03-26_2046.pdf`
-4. **Ask your AI:** "Analyze this decision using the 3-lens framework"
-5. **The AI activates all 101 rules automatically**
+**Real impact:** 40-60% fewer wasted tokens on dead-end work.
 
-That's it. The framework is now active.
+---
+
+## The Framework (Simplified)
+
+STIX = **109 rules** organized into **3 types**:
+
+### Core Rules (V1.1 — 101 rules, all active)
+| Protocol | Rules | What It Does |
+|----------|-------|--------------|
+| **VERDICT** | 7 | Foundational values & goals |
+| **APEX** | 53 | How to execute & communicate |
+| **FORGE** | 13 | State management & records |
+| **ARCHITECT** | 20 | Planning & decomposition |
+| **CIPHER** | 11 | Irreversible action gates |
+
+### New Rules (V2.0 — 8 rules, now active)
+| Protocol | Rules | What It Does |
+|----------|-------|--------------|
+| **OBSERVE** | 8 | Real-time compliance tracking |
+
+### Future Rules (V2.1 — Planned, not yet deployed)
+| Protocol | Rules | What It Does |
+|----------|-------|--------------|
+| **RISK** | — | Hard stops & safety limits |
+| **ECON** | — | Cost-value measurement |
+
+---
+
+## How It Works
+
+**The "Three-Lens" System** (The Secret Sauce)
+
+Before ANY decision, STIX asks:
+
+```
+🧠 COMPUTER SCIENTIST LENS:  "Is this algorithmically sound?"
+🔧 DEVELOPER LENS:           "Have we done this before? What failed?"
+📊 ENGINEER LENS:             "Do we have resources? What's the bottleneck?"
+```
+
+All three must agree → **HIGH confidence → execute**
+
+Only one/two agree → **MEDIUM confidence → proceed cautiously**
+
+None agree → **LOW confidence → STOP**
+
+---
+
+## Real Example: PDF Batch Processing
+
+**Bad thinking (without STIX):** "I'll build it and see if it works"
+
+**STIX thinking (with 3 lenses):**
+- **CS:** O(n) complexity, termination guaranteed, edge case = corrupted files
+- **Dev:** We built this before (CHAMP tool), learned: encrypted PDFs fail
+- **Engineer:** 100 PDFs × 150 tokens = 15K budget. We have 20K. Fits.
+- **Result:** All three agree → BUILD IT → works
+
+---
 
 ---
 
