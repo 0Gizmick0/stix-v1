@@ -105,26 +105,6 @@ Coverage graphs, audit maps, and visual diagnostics.
 
 ---
 
-### PERSONAL_CONTEXT/
-Creator context documents — situation, full profile, complete profile.
-
-| File | Timestamp |
-|------|-----------|
-| `APEX_FORGE_Situation_2026-03-26_1344.pdf` | 2026-03-26 13:44 |
-| `APEX_FORGE_FULL_2026-03-26_1346.pdf` | 2026-03-26 13:46 |
-| `APEX_FORGE_COMPLETE_2026-03-26_1350.pdf` | 2026-03-26 13:50 |
-
----
-
-### LEGAL_FINANCIAL/
-Legal and financial documents.
-
-| File | Timestamp |
-|------|-----------|
-| `Lease_Agreement_2026-03-26_1342.pdf` | 2026-03-26 13:42 |
-| `Financial_Plan_2026-03-26_1806.pdf` | 2026-03-26 18:06 |
-
----
 
 ### v2.0/
 Proposed upgrade architecture. Level 3 — NOT current law. All 7 document-level conflicts resolved 2026-03-28.
@@ -138,14 +118,6 @@ Proposed upgrade architecture. Level 3 — NOT current law. All 7 document-level
 | `APEX_FORGE_IMPLEMENTATION_SPEC.pdf` | Level 4 | Implementation blueprint — proposed V2 only |
 | `STIX_V2_Roadmap.txt` | Level 3 | Full build order, Category 1 items, confirmed architecture |
 
-### session_state/
-Session continuity. Per F6 and F9 — persistent state across sessions.
-
-| File | Notes |
-|------|-------|
-| `latest.md` | Current session state — what works, what's open, last confirmed decisions |
-
----
 
 ## Downloads/stix_pdfs/ — Authority-Level Access Point
 Named copies organized for direct loading by authority level.
@@ -164,20 +136,6 @@ Named copies organized for direct loading by authority level.
 
 ---
 
-## Excluded From STIX (By Instruction)
-
-North Carolina files remain in `/home/larp/Documents/` untouched:
-- `North_Carolina_1760.pdf`
-- `North_Carolina_1760_Positive_Brochure.pdf`
-
----
-
-## Originals
-
-All files above are copies. Originals remain in `/home/larp/Documents/`.
-To remove originals, confirm and they will be deleted.
-
----
 
 *Index maintained per F11 — Preserve Provenance Always.*
 *Protocol Evolution per Appendix B — changes require stated reason referencing which core value the change better serves.*
