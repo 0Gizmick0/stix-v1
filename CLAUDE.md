@@ -2,7 +2,7 @@
 
 Auto-loaded every session.
 
-**Full protocol (SOURCE OF TRUTH):** `./CORE_PROTOCOL/APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_2026-03-26_2046.pdf`
+**Full protocol (SOURCE OF TRUTH):** `./CORE_PROTOCOL/APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_2026-03-26_2046.md` (and other versions in same folder)
 
 **Protocol summaries by layer:** `./` (this directory)
 

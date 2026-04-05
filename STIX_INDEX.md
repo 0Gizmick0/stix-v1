@@ -4,16 +4,16 @@ location: Framework repository/
 source_protocol: STIX v1.1 — Structured Tiers for Integrated Execution
 indexed: 2026-03-27
 last_updated: 2026-03-29
-total_framework_rules: 101
+total_framework_rules: 109 (101 active + 8 OBSERVE + 24 planned)
 provenance: F11 — Every record carries source, timestamp, and version of the logic that produced it.
 ---
 
 # STIX — Master Index
 **Full Name:** Structured Tiers for Integrated Execution
-**Location:** `/home/larp/DATABASE/STIX/`
+**Location:** Framework repository/
 **Indexed:** 2026-03-27
-**Governing Framework:** STIX v1.1 | 101 Rules
-**Last Updated:** 2026-03-29
+**Governing Framework:** STIX v1.1 (101 rules) + v2.0 OBSERVE (8 rules) = 109 total
+**Last Updated:** 2026-04-05
 
 ---
 
@@ -30,11 +30,15 @@ These folders contain detailed summaries of every rule in the governing protocol
 | `APEX/EXACTNESS/` | Article II-X | X1–X13 (13 rules) | PRECISION | `EXACTNESS_SUMMARY.md` |
 | `FORGE/` | Article III | F1–F13 (13 rules) | ALIGNMENT | `FORGE_SUMMARY.md` |
 | `CIPHER/` | Article IV | G1–G11 (11 rules) | INTEGRITY | `CIPHER_SUMMARY.md` |
-| `RELAY/` | Article V (proposed V2) | RL1–RL8 (8 rules) | JUDGMENT | `RELAY_SUMMARY.md` |
+| `RELAY/` | Article V | RL1–RL8 (8 rules) | JUDGMENT | `RELAY_SUMMARY.md` |
+| `OBSERVE/` | Article V | OB1–OB8 (8 rules) | TRANSPARENCY | `OBSERVE_SUMMARY.md` |
+| `RISK/` | Article V (planned V2.1) | — | SAFETY | `RISK_SUMMARY.md` |
+| `ECON/` | Article V (planned V2.1) | — | EFFICIENCY | `ECON_SUMMARY.md` |
 | `GOVERNING_BOUNDARIES/` | Appendix A | B1–B7 (7 boundaries) | ALL VALUES | `GOVERNING_BOUNDARIES_SUMMARY.md` |
 
-**Total: 101 rules across 5 articles + 1 appendix (B1–B7 boundaries not counted in rule total)**
-**Articles:** VERDICT (7) + APEX (51) + FORGE (13) + CIPHER (11) + ARCHITECT (20) + RELAY (8, proposed V2)
+**Total: 109 rules active (101 V1.1 + 8 V2.0 OBSERVE). 24 rules planned (V2.1 RISK/ECON/sub-protocols)**
+**Active Protocols:** VERDICT (7) + APEX (51) + FORGE (13) + CIPHER (11) + ARCHITECT (20) + RELAY (8) + OBSERVE (8)
+**Planned (V2.1):** RISK + ECON + RELAY sub-protocols (PUBLISH, API_OUT, SOCIAL)
 **Appendices: Appendix A (B1–B7), Appendix B (Protocol Evolution), Appendix C (Error Classification), Appendix D (Operating Cadence)**
 
 ---
