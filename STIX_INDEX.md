@@ -1,6 +1,6 @@
 ---
 name: STIX Master Index
-location: /home/larp/DATABASE/STIX/
+location: Framework repository/
 source_protocol: STIX v1.1 — Structured Tiers for Integrated Execution
 indexed: 2026-03-27
 last_updated: 2026-03-29

@@ -2,7 +2,7 @@
 Version: 1.0
 Established: March 25, 2026
 Authors: ██████████ + Claude (Anthropic)
-Stored: /home/larp/DATABASE/PROJECTS/PROTOCOL.md
+Stored: Framework repository/PROTOCOL.md
 
 APEX  — AI Precision Execution Protocol
 FORGE — Framework for Organized Reconnaissance, Governance, and Execution

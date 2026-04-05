@@ -2,7 +2,7 @@ STIX V2.0 PLANNING DOCUMENT (ARCHIVED)
 Status: DEFERRED — awaiting explicit user request
 Category 1 status: CONFIRMED (2026-03-29) — RELAY, CIPHER G8-G11, Boundaries B4-B7, APEX additions all written and integrated into V1.1
 WDS status: DROPPED (2026-03-29 per user instruction 'forget WDS') — not included in V1.1 or V2.0
-Current active version: STIX V1.1 (101 rules) — See /home/larp/DATABASE/PROJECTS/projects/stix-setup/about.md
+Current active version: STIX V1.1 (101 rules) — See framework documentation
 
 This document represents future planning for STIX V2.0 (3 new protocols: OBSERVE, RISK, ECON).
 V2.0 will be built ONLY if explicitly requested by user.

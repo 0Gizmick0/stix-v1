@@ -1,7 +1,7 @@
 # Naming Conventions — Project Database
 
 **Status:** Documented standard (2026-03-30)
-**Scope:** /home/larp/DATABASE/ directory structure
+**Scope:** Project database directory structure
 **Compliance:** Guidelines (not strict requirements yet; for future migration)
 
 ---
