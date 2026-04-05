@@ -118,32 +118,178 @@ None agree → **LOW confidence → STOP**
 
 ---
 
-## How to Use STIX — Pick Your Platform
+## 🎯 How to Activate STIX (Step-by-Step Prompts by Platform)
 
 ### 🖥️ **Claude Code (Local Development)**
 
-Clone the repo and use it locally with Claude Code:
+**Best for:** Long projects, full framework access, auto-loading.
+
+#### Setup (5 minutes):
 
 ```bash
+# 1. Clone the repo
 git clone https://github.com/0Gizmick0/stix-v1.git
 cd stix-v1
+
+# 2. Open in Claude Code
+claude code .
 ```
 
-Then load `CLAUDE.md` into your Claude Code session. The framework will reference all local files (APEX/, FORGE/, etc.) and work seamlessly.
+#### In Claude Code:
+
+```
+Load CLAUDE.md into the session (Claude Code will auto-detect it).
+Say: "Load the STIX framework from CLAUDE.md"
+```
+
+**Result:** All 109 rules + protocol files automatically available. The AI reads and enforces every rule from CLAUDE.md + local files.
+
+**Verification:** The AI should respond with:
+```
+PROTOCOL STACK ACTIVE : VERDICT + APEX + FORGE + CIPHER + ARCHITECT + OBSERVE
+RULE COUNT            : 109 (V1.1: 101 rules + V2.0 OBSERVE: 8 rules)
+```
 
 ---
 
-### 💬 **Claude.ai, ChatGPT, or Any Browser Chat**
+### 💬 **Claude.ai or ChatGPT (Browser — No Setup)**
 
-1. Open Claude.ai or ChatGPT
-2. **Paste this file:** `CLAUDE.md` (copy-paste into the chat)
-3. **Upload these PDFs:** 
-   - `CORE_PROTOCOL/APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_2026-03-26_2046.pdf`
-   - Any other CORE_PROTOCOL PDFs you want
+**Best for:** Quick decisions, one-off analysis, zero installation.
 
-The AI will read CLAUDE.md, reference the PDFs you uploaded, and enforce all 101 rules.
+#### Step 1: Download CLAUDE.md
+Download `CLAUDE.md` from this repo (copy the raw content).
 
-**Why it works:** The PDFs contain the source of truth. CLAUDE.md references them. The AI can read both.
+#### Step 2: Create New Chat & Paste CLAUDE.md
+```
+1. Open claude.ai or chatgpt.com
+2. Start new conversation
+3. Paste entire CLAUDE.md as your first message
+4. Hit send (let the AI read it)
+```
+
+#### Step 3: Upload the Master Protocol
+Upload ONE markdown file to provide the rule definitions:
+- Best choice: `CORE_PROTOCOL/APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_2026-03-26_2046.md`
+
+**Or** if you prefer to read from files locally:
+- Download `CORE_PROTOCOL/` folder
+- Upload the .md files (not PDFs)
+
+#### Step 4: Activate & Verify
+**Say to the AI:**
+
+```
+You now have the STIX governance framework loaded (CLAUDE.md + CORE_PROTOCOL).
+
+Before we start work:
+- Confirm you understand the three-lens thinking (CS, Dev, Engineer)
+- Show me the protocol stack you're operating under
+- Acknowledge the mandatory gates (CHAMP, E13, ARCHITECT, session constraint, CIPHER)
+
+Ready? Then for my first task: [your actual request]
+```
+
+**Result:** AI confirms all 109 rules are active. You can now use STIX-guided thinking.
+
+---
+
+### 📱 **Mobile (Claude App or ChatGPT App)**
+
+**Best for:** On-the-go decisions, same process as browser.
+
+#### Steps:
+1. Download `CLAUDE.md` (email it to yourself or save to notes)
+2. Open Claude/ChatGPT mobile app → New chat
+3. Copy-paste CLAUDE.md into the chat
+4. Upload markdown file from CORE_PROTOCOL/ (if app supports file upload)
+5. Use exact same activation prompt as Claude.ai above
+
+**Note:** Some mobile apps have file upload limits. If you can't upload, just use CLAUDE.md + describe rules in text.
+
+---
+
+### ⚙️ **Custom AI System / API Integration**
+
+**Best for:** Building your own AI product.
+
+#### Option A: Simple (Copy-Paste System Prompt)
+
+```python
+# Load CLAUDE.md content
+with open("CLAUDE.md", "r") as f:
+    stix_framework = f.read()
+
+# Use as system prompt
+system_prompt = f"""{stix_framework}
+
+[Your additional instructions below]
+"""
+
+# Send to your AI API
+response = client.messages.create(
+    model="claude-opus-4-6",
+    system=system_prompt,
+    messages=[...]
+)
+```
+
+#### Option B: Advanced (With Rule Files)
+
+```python
+import os
+
+# Load all protocol files
+protocols = {}
+for file in os.listdir("CORE_PROTOCOL/"):
+    if file.endswith(".md"):
+        with open(f"CORE_PROTOCOL/{file}", "r") as f:
+            protocols[file] = f.read()
+
+# Load main framework
+with open("CLAUDE.md", "r") as f:
+    system_prompt = f.read()
+
+# Use in your system
+# (frameworks like Anthropic, LangChain, LLamaIndex can ingest files)
+```
+
+---
+
+## ✅ Verify STIX is Working
+
+**After activation, ask your AI:**
+
+```
+Analyze this decision using the three-lens framework:
+"Should we use REST or GraphQL for our API?"
+
+Show me:
+1. CS lens analysis (algorithm/complexity)
+2. Dev lens analysis (patterns/history)
+3. Engineer lens analysis (constraints/resources)
+4. Which lenses agree? (HIGH/MEDIUM/LOW confidence)
+5. Which rules apply here?
+```
+
+**You should see:**
+- All 3 lenses analyzed (not just one or two)
+- Specific rule IDs cited
+- Confidence level justified
+- Token accounting shown
+
+If you see this → **STIX is active and working. ✅**
+
+---
+
+## 🔧 Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| AI ignores three-lens thinking | Re-paste CLAUDE.md. Mention "three lenses must agree" explicitly in your prompt. |
+| Rules not being cited | Ask: "Which STIX rules apply here? (cite by ID: E13, A20, etc.)" |
+| Framework feels "advisory" | It's normal at first. After 2-3 uses, the AI internalizes it. The thinking becomes automatic. |
+| File too large to paste | Use CHAMP tool to extract PDFs as text → paste extracted .txt instead |
+| Missing rule definitions | Ensure you uploaded CORE_PROTOCOL/.md files (the .md versions are what the AI reads) |
 
 ---
 
