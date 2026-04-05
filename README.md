@@ -226,34 +226,134 @@ python tools/champ.py file.pdf --mode images    # Extract as JPEGs
 
 **Token savings:** ~150 tokens (extracted text) vs ~3000 tokens (vision reading) = **95% reduction**.
 
-## Architecture
+## Repository Structure
 
-The framework is organized as:
+**Complete file tree of what you're downloading:**
 
 ```
 stix-v1/
-├── README.md                      ← This file (start here)
-├── CLAUDE.md                      ← System prompt (paste into your AI)
 │
-├── CORE_PROTOCOL/                 ← Source-of-truth PDFs (4 versions + appendices)
-│   ├── APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_*.pdf  ← Current law (101 rules)
-│   ├── APPENDIX_C_ERROR_CLASSIFICATION.md
-│   └── APPENDIX_D_OPERATING_CADENCE.md
+├── 📄 README.md                              ← This file (start here)
+├── 📄 CLAUDE.md                              ← System prompt (copy-paste into Claude.ai)
+├── 📄 LICENSE                                ← AGPL-3.0 with commercial flexibility
+├── 📄 .gitignore                             ← Standard Python/IDE ignores
+├── 📄 STIX_INDEX.md                          ← Master index of all protocols
+├── 📄 NAMING_CONVENTIONS.md                  ← Framework naming standards
 │
-├── APEX/                          ← Execution (E1–E25), Communication (C1–C15), Exactness (X1–X13)
-├── ARCHITECT/                     ← Strategic decomposition (A1–A20)
-├── CIPHER/                        ← Irreversible commitment gates (G1–G11)
-├── FORGE/                         ← State management (F1–F13)
-├── VERDICT/                       ← Foundational values (V1–V7)
-├── RELAY/                         ← Proposed V2.0 relay protocols (RL1–RL8)
-├── GOVERNING_BOUNDARIES/          ← Boundary enforcement (B1–B7)
+├── 📁 CORE_PROTOCOL/                         ← SOURCE OF TRUTH (all rule definitions)
+│   ├── APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_2026-03-26_2046.pdf  (Current law)
+│   ├── APEX_FORGE_CIPHER_MASTER_PROTOCOL_v3_2026-03-26_1932b.pdf (Prior version)
+│   ├── APEX_FORGE_CIPHER_MASTER_PROTOCOL_v2_2026-03-26_1932.pdf  (Historical)
+│   ├── APEX_FORGE_CIPHER_MASTER_PROTOCOL_v1_2026-03-26_1831.pdf  (Original)
+│   ├── APPENDIX_C_ERROR_CLASSIFICATION.md   (6 error types)
+│   ├── APPENDIX_D_OPERATING_CADENCE.md      (6 operational points)
+│   ├── Document_1_STIX_Authority_Ladder.pdf (5-level authority system)
+│   ├── Document_1_STIX_Authority_Ladder.md  (Markdown version)
+│   └── E20_RETIREMENT_RECORD.md             (Formal rule retirement)
 │
-├── v2.0/                          ← V2.0 roadmap and migration matrix
-├── templates/                     ← Blank templates for your own projects
-├── tools/
-│   └── champ.py                   ← PDF-to-text extractor (saves 95% tokens)
-└── NAMING_CONVENTIONS.md          ← Framework naming rules
+├── 📁 VERDICT/                               (7 rules — Foundational Values)
+│   └── VERDICT_SUMMARY.md
+│
+├── 📁 APEX/                                  (53 rules — Execution Discipline)
+│   ├── EXECUTION/
+│   │   ├── EXECUTION_SUMMARY.md
+│   │   ├── E13_CONFIDENCE_CRITERIA.md
+│   │   ├── E21_HUMAN_IN_LOOP_GATE.md
+│   │   ├── E22_MODULE_CAPABILITY_CONFLICT.md
+│   │   ├── E23_INPUT_SOURCE_VERIFICATION.md
+│   │   └── E25_CONTEXT_COMPRESSION.md
+│   ├── COMMUNICATION/
+│   │   ├── COMMUNICATION_SUMMARY.md
+│   │   ├── C14_LANGUAGE_PRECISION.md
+│   │   └── C15_INTERRUPT_RECOVERY.md
+│   └── EXACTNESS/
+│       ├── EXACTNESS_SUMMARY.md
+│       └── X13_POINTER_RESOLUTION.md
+│
+├── 📁 FORGE/                                 (13 rules — State Management)
+│   ├── FORGE_SUMMARY.md
+│   └── F13_ACTIVE_COMPLIANCE_VERIFICATION.md
+│
+├── 📁 ARCHITECT/                             (20 rules — Strategic Decomposition)
+│   ├── ARCHITECT_SUMMARY.md
+│   ├── ARCHITECT_PROTOCOL.md
+│   └── ARCHITECT_PROTOCOL_INTEGRATED.md
+│
+├── 📁 CIPHER/                                (11 rules — Irreversible Gates)
+│   ├── CIPHER_SUMMARY.md
+│   ├── G8_CIPHER_UNIVERSAL_TRIGGER.md
+│   ├── G9_FINANCIAL_DECISION_GATE.md
+│   ├── G10_CODE_TO_PRODUCTION_GATE.md
+│   └── G11_PUBLISHED_ARTIFACT_GATE.md
+│
+├── 📁 RELAY/                                 (8 rules — Communication Relay)
+│   └── RELAY_SUMMARY.md
+│
+├── 📁 GOVERNING_BOUNDARIES/                  (7 boundaries — Enforcement)
+│   ├── GOVERNING_BOUNDARIES_SUMMARY.md
+│   ├── B4_NO_UNILATERAL_CONTENT.md
+│   ├── B5_NO_SILENT_CONTINUITY.md
+│   ├── B6_NO_FINAL_WITHOUT_CONFIRMATION.md
+│   └── B7_NO_SCOPE_EXPANSION.md
+│
+├── 📁 OBSERVE/                               (8 rules — Transparency [V2.0 NEW])
+│   ├── OBSERVE_SUMMARY.md
+│   ├── OB1_EVERY_OUTPUT_AUDITABLE.md
+│   ├── OB2_COMPLIANCE_CHECK_AT_OUTPUT.md
+│   ├── OB3_DRIFT_DETECTION.md
+│   ├── OB4_SESSION_ENTROPY_METER.md
+│   ├── OB5_CONFIDENCE_JUSTIFICATION.md
+│   ├── OB6_VIOLATION_LOGGING.md
+│   ├── OB7_METRICS_COLLECTION.md
+│   └── OB8_FRAMEWORK_DRIFT_TRACKING.md
+│
+├── 📁 RISK/                                  (Planned V2.1 — Safety & Hard Stops)
+│   └── RISK_SUMMARY.md                       (Rules not yet written)
+│
+├── 📁 ECON/                                  (Planned V2.1 — Efficiency & Value)
+│   └── ECON_SUMMARY.md                       (Rules not yet written)
+│
+├── 📁 v2.0/                                  (V2.0 Planning & Roadmap)
+│   ├── V2_INDEX.md                           (Complete V2.0 index)
+│   ├── STIX_V2_Complete_Framework.pdf        (Migration matrix)
+│   ├── STIX_V2_Additions_GPT_Document.pdf    (Implementation spec)
+│   ├── CONFLICT_RESOLUTIONS.md               (7 design conflicts resolved)
+│   ├── Document_2_STIX_Document_Level_Conflict_Register.pdf
+│   ├── Document_3_STIX_V1_to_V2_Migration_Matrix.pdf
+│   ├── APEX_FORGE_IMPLEMENTATION_SPEC.pdf
+│   └── STIX_V2_Roadmap.txt                   (Full build order)
+│
+├── 📁 templates/                             (Project Templates)
+│   ├── about_template.md                     (Blank project about file)
+│   └── audit_log_template.md                 (Blank audit log template)
+│
+└── 📁 tools/
+    └── champ.py                              (PDF-to-text extractor, 95% token savings)
+
 ```
+
+---
+
+### What Each Folder Contains
+
+| Folder | Rules | Purpose |
+|--------|-------|---------|
+| **CORE_PROTOCOL/** | — | Source of truth PDFs (all 4 versions archived) |
+| **VERDICT/** | V1–V7 (7) | Foundational decision values |
+| **APEX/** | E1–E25, C1–C15, X1–X13 (53) | Execution discipline + communication |
+| **FORGE/** | F1–F13 (13) | State management & database integrity |
+| **ARCHITECT/** | A1–A20 (20) | Strategic decomposition & planning |
+| **CIPHER/** | G1–G11 (11) | Irreversible commitment gates |
+| **RELAY/** | RL1–RL8 (8) | Communication relay (V2.0) |
+| **GOVERNING_BOUNDARIES/** | B1–B7 (7) | Enforcement boundaries |
+| **OBSERVE/** | OB1–OB8 (8) | Transparency & compliance (V2.0 NEW) |
+| **RISK/** | — | Planned V2.1 (safety thresholds) |
+| **ECON/** | — | Planned V2.1 (efficiency measurement) |
+| **v2.0/** | — | Roadmap + planning documents |
+| **templates/** | — | Starter files for new projects |
+| **tools/** | — | CHAMP PDF extraction utility |
+
+**Total: 109 rules (101 active + 8 OBSERVE deployed)**
 
 ## Built-In Tools
 
