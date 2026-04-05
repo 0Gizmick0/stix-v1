@@ -14,63 +14,78 @@ STIX v1.1 is a **structured execution model** — not a suggestion or guideline,
 
 **Total: 101 rules. All binding. All active.**
 
-## Quick Start
+## How to Use STIX — Pick Your Platform
 
-### 1. Load the Framework
+### 🖥️ **Claude Code (Local Development)**
+
+Clone the repo and use it locally with Claude Code:
+
+```bash
+git clone https://github.com/0Gizmick0/stix-v1.git
+cd stix-v1
+```
+
+Then load `CLAUDE.md` into your Claude Code session. The framework will reference all local files (APEX/, FORGE/, etc.) and work seamlessly.
+
+---
+
+### 💬 **Claude.ai, ChatGPT, or Any Browser Chat**
+
+1. Open Claude.ai or ChatGPT
+2. **Paste this file:** `CLAUDE.md` (copy-paste into the chat)
+3. **Upload these PDFs:** 
+   - `CORE_PROTOCOL/APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_2026-03-26_2046.pdf`
+   - Any other CORE_PROTOCOL PDFs you want
+
+The AI will read CLAUDE.md, reference the PDFs you uploaded, and enforce all 101 rules.
+
+**Why it works:** The PDFs contain the source of truth. CLAUDE.md references them. The AI can read both.
+
+---
+
+### 📱 **Mobile (Claude App, ChatGPT App)**
+
+Same as browser:
+1. Open your mobile AI app
+2. Paste `CLAUDE.md`
+3. Upload the PDFs
+
+The app handles files just like the web version.
+
+---
+
+### ⚙️ **Integrate into Your Own Project**
+
+If you're building your own AI system:
 
 ```bash
 # Copy CLAUDE.md into your project
 cp CLAUDE.md /your/project/
 
-# Or reference it directly in your AI system prompt
-cat CLAUDE.md >> your_system_prompt.txt
+# Or load it in code:
+with open("CLAUDE.md", "r") as f:
+    stix_framework = f.read()
+    
+# Use as your system prompt
+system_prompt = f"{stix_framework}\n\n[Your additional instructions]"
 ```
 
-### 2. Read the Core Protocol
+---
 
-Start here for the authoritative source:
+## How It All Works Together
 
-```
-CORE_PROTOCOL/APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_2026-03-26_2046.pdf
-```
+- **`CLAUDE.md`** = The operating manual (copy-paste anywhere, works standalone)
+- **Rule summaries** (APEX/, ARCHITECT/, etc.) = Reference docs (look up specific rules)
+- **PDFs** (CORE_PROTOCOL/) = Authoritative source (when you need the full story)
+- **`CHAMP.py`** = Utility tool (extract PDFs to save tokens)
 
-All 101 rules are formally defined in this document.
+**You only need CLAUDE.md to get started.** Everything else is reference material that makes the framework easier to understand and extend.
 
-### 3. Understand the Five Protocols
+## V2.0 — The Roadmap
 
-Each protocol folder contains detailed rule summaries:
+Interested in where STIX is headed?
 
-- `VERDICT/VERDICT_SUMMARY.md` — Foundational values (V1–V7)
-- `APEX/EXECUTION/EXECUTION_SUMMARY.md` — Execution rules (E1–E25)
-- `APEX/COMMUNICATION/COMMUNICATION_SUMMARY.md` — Communication rules (C1–C15)
-- `APEX/EXACTNESS/EXACTNESS_SUMMARY.md` — Exactness rules (X1–X13)
-- `FORGE/FORGE_SUMMARY.md` — State management (F1–F13)
-- `ARCHITECT/ARCHITECT_SUMMARY.md` — Strategic planning (A1–A20)
-- `CIPHER/CIPHER_SUMMARY.md` — Commitment gates (G1–G11)
-- `RELAY/RELAY_SUMMARY.md` — Relay protocols (RL1–RL8, proposed V2.0)
-
-### 4. Use CLAUDE.md as Your AI System Prompt
-
-`CLAUDE.md` is designed to be loaded directly into your AI system. It:
-
-- Activates three simultaneous analytical lenses (CS/Dev/Engineer)
-- Enforces mandatory gates before any work begins
-- Tracks session state and prevents violations
-- Provides automatic thinking patterns, not consultative questionnaires
-
-**Key sections in CLAUDE.md:**
-- **SESSION START BOOTSTRAP** — 5-step gated initialization
-- **THREE LENSES** — Automatic correctness/pattern/constraint thinking
-- **SIX CORE INSTINCTS** — Operating discipline
-- **CIPHER GATES** — Irreversible commitment safeguards
-
-## Framework Analysis
-
-For deeper understanding:
-
-- `FRAMEWORK_ANALYSIS/` — Thesis documents, knowledge databases, master audits
-- `OBSERVABILITY/` — Visual diagrams of framework coverage and conflict maps
-- `v2.0/` — V2.0 migration docs and roadmap
+- `v2.0/` — Complete roadmap for STIX v2.0 with migration path from v1.1
 
 ## Use Cases
 
@@ -135,77 +150,64 @@ python tools/champ.py file.pdf --mode images    # Extract as JPEGs
 The framework is organized as:
 
 ```
-stix-v1.1/
-├── CLAUDE.md                      ← Main system prompt
-├── CORE_PROTOCOL/                 ← Source-of-truth PDFs + appendices
-├── APEX/                          ← Execution, Communication, Exactness rules
-├── ARCHITECT/                     ← Strategic decomposition protocol
-├── CIPHER/                        ← Irreversible commitment gates
-├── FORGE/                         ← State management
-├── VERDICT/                       ← Foundational values
-├── RELAY/                         ← V2.0 relay protocols (proposed)
-├── GOVERNING_BOUNDARIES/          ← Boundary enforcement rules
-├── FRAMEWORK_ANALYSIS/            ← Thesis docs, audits, knowledge base
-├── OBSERVABILITY/                 ← Diagrams, coverage maps, conflict analysis
-├── v2.0/                          ← V2.0 migration path and roadmap
-├── templates/                     ← Project templates for your own work
-├── tools/                         ← Utilities (CHAMP PDF extractor)
-└── README.md                      ← This file
+stix-v1/
+├── README.md                      ← This file (start here)
+├── CLAUDE.md                      ← System prompt (paste into your AI)
+│
+├── CORE_PROTOCOL/                 ← Source-of-truth PDFs (4 versions + appendices)
+│   ├── APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_*.pdf  ← Current law (101 rules)
+│   ├── APPENDIX_C_ERROR_CLASSIFICATION.md
+│   └── APPENDIX_D_OPERATING_CADENCE.md
+│
+├── APEX/                          ← Execution (E1–E25), Communication (C1–C15), Exactness (X1–X13)
+├── ARCHITECT/                     ← Strategic decomposition (A1–A20)
+├── CIPHER/                        ← Irreversible commitment gates (G1–G11)
+├── FORGE/                         ← State management (F1–F13)
+├── VERDICT/                       ← Foundational values (V1–V7)
+├── RELAY/                         ← Proposed V2.0 relay protocols (RL1–RL8)
+├── GOVERNING_BOUNDARIES/          ← Boundary enforcement (B1–B7)
+│
+├── v2.0/                          ← V2.0 roadmap and migration matrix
+├── templates/                     ← Blank templates for your own projects
+├── tools/
+│   └── champ.py                   ← PDF-to-text extractor (saves 95% tokens)
+└── NAMING_CONVENTIONS.md          ← Framework naming rules
 ```
 
-## Integration Examples
+## Built-In Tools
 
-### Example 1: Load in Claude API
+### CHAMP — Token-Efficient PDF Extraction
 
-```python
-from anthropic import Anthropic
+STIX includes **CHAMP** for reading PDFs without burning through tokens:
 
-with open("CLAUDE.md", "r") as f:
-    stix_framework = f.read()
+```bash
+# Extract a PDF to plain text (95% token savings vs vision reading)
+python tools/champ.py document.pdf --mode text
 
-system_prompt = f"""
-{stix_framework}
+# Auto-detect PDF type and extract accordingly
+python tools/champ.py document.pdf --mode auto
 
-You are an AI assistant using the STIX v1.1 governance framework.
-Apply all 101 rules in all decisions.
-"""
-
-client = Anthropic()
-message = client.messages.create(
-    model="claude-3-5-sonnet-20241022",
-    max_tokens=1024,
-    system=system_prompt,
-    messages=[{"role": "user", "content": "Your task here..."}]
-)
+# Extract as images (best for complex layouts)
+python tools/champ.py document.pdf --mode images
 ```
 
-### Example 2: Embed in System Prompt
+**Why this matters:** Reading a 50-page PDF with vision tokens costs ~3000 tokens. CHAMP extracts it as text for ~150 tokens. Same information, 20x cheaper.
 
-Copy `CLAUDE.md` directly into your system prompt for any AI system. The framework auto-activates the three-lens thinking, mandatory gates, and core instincts.
+## Getting Help
 
-### Example 3: Organizational Process
+**Rule not clear?** Look it up:
+- Search the PDF: `CORE_PROTOCOL/APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_*.pdf`
+- Check the summary: `APEX/EXECUTION/EXECUTION_SUMMARY.md` (for E rules), etc.
+- Read CLAUDE.md directly — it cites every rule
 
-Use the six core instincts + ARCHITECT phase as a decision-making framework for teams:
+**Want to understand the roadmap?** See `v2.0/` for migration docs and future protocol additions.
 
-1. **CLARIFY** — Mirror back the problem
-2. **ARCHITECT** — Formal decomposition before execution
-3. **THREE LENSES** — CS/Dev/Engineer agree before proceeding
-4. **DOCUMENT** — Write decisions during planning, not after
-5. **GATE** — Require explicit confirmation on irreversible decisions
-6. **VERIFY** — Confirm work is complete before advancing
+---
 
 ## License
 
 STIX v1.1 is provided as-is for commercial and private use.
 
-## References
-
-- **Full Protocol:** `CORE_PROTOCOL/APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_2026-03-26_2046.pdf`
-- **Master Audit:** `FRAMEWORK_ANALYSIS/STIX_Complete_Master_Audit_v1_0.pdf`
-- **Conflict Register:** `v2.0/Document_2_STIX_Document_Level_Conflict_Register.pdf`
-
 ---
 
 **Built for judgment, precision, alignment, and integrity.**
-
-For questions or issues, refer to the core protocol and framework analysis documents.
