@@ -1,18 +1,25 @@
-# STIX v1.1 — AI Governance Framework
+# STIX — AI Governance Framework
+## Version History: V1.1 (101 rules) + V2.0 OBSERVE (8 rules) + V2.1 Roadmap (RISK/ECON planned)
 
-**STIX** (Strategic Thinking and Integrity X) is a formal governance framework for AI agents and autonomous systems. It defines 101 rules across five core protocols to ensure judgment, precision, alignment, and integrity in decision-making.
+**STIX** (Strategic Thinking and Integrity X) is a formal governance framework for AI agents and autonomous systems. It defines **109 rules across eight core protocols** to ensure judgment, precision, alignment, integrity, and transparency in decision-making.
 
 ## What is STIX?
 
-STIX v1.1 is a **structured execution model** — not a suggestion or guideline, but a binding operational framework with:
+STIX is a **structured execution model** — not a suggestion or guideline, but a binding operational framework with:
 
+**Core Protocols (V1.1 — Complete: 101 rules):**
 - **VERDICT (7 rules):** Foundational values driving all decisions
 - **APEX (53 rules):** Execution discipline, communication clarity, exactness
 - **FORGE (13 rules):** State management and database integrity
 - **ARCHITECT (20 rules):** Strategic decomposition and critical path planning
 - **CIPHER (11 rules):** Irreversible commitment gates and security thresholds
 
-**Total: 101 rules. All binding. All active.**
+**Operational Protocols:**
+- **OBSERVE (8 rules):** Transparency & compliance instrumentation [V2.0 — Complete]
+- **RISK (planned):** Safety thresholds & hard stops [V2.1 — Scheduled]
+- **ECON (planned):** Efficiency & cost-value measurement [V2.1 — Scheduled]
+
+**Total: 109 rules (101 active + 8 OBSERVE deployed). RISK/ECON under development.**
 
 ## The Problem STIX Solves
 

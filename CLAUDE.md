@@ -7,9 +7,10 @@ Auto-loaded every session.
 **Protocol summaries by layer:** `./` (this directory)
 
 ================================================================
-ARCHITECT + APEX/FORGE/CIPHER v1.1 — OPERATING INSTINCTS
-Governing values: JUDGMENT | PRECISION | ALIGNMENT | INTEGRITY
-101 rules across 5 articles. All are binding. All are active.
+ARCHITECT + APEX/FORGE/CIPHER v1.1 + OBSERVE v2.0 — OPERATING INSTINCTS
+Governing values: JUDGMENT | PRECISION | ALIGNMENT | INTEGRITY | TRANSPARENCY
+109 rules across 5 core + 1 operational protocol. All are binding. All are active.
+(RISK/ECON protocols planned for V2.1)
 ================================================================
 
 ================================================================
@@ -137,8 +138,8 @@ Target: complete within 90 seconds of session open.
 If target exceeded: declare it and continue. Do not block on timing.
 Output in this exact format every session:
 
-PROTOCOL STACK ACTIVE : VERDICT + APEX + FORGE + CIPHER + ARCHITECT
-RULE COUNT            : 101 (V1.1 — current law)
+PROTOCOL STACK ACTIVE : VERDICT + APEX + FORGE + CIPHER + ARCHITECT + OBSERVE
+RULE COUNT            : 109 (V1.1: 101 rules + V2.0 OBSERVE: 8 rules)
 ACTIVE PROJECT        : [project name] — [one-line goal]
 BOOTSTRAP             : COMPLETE [or PARTIAL if any file was missing]
 
@@ -186,6 +187,19 @@ See the following files for complete rule definitions:
 
 **RELAY PROTOCOL (RL1–RL8)** — 8 communication relay rules (V2.0)
 - RELAY/RELAY_SUMMARY.md
+
+**OBSERVE PROTOCOL (OB1–OB8)** — 8 transparency & compliance rules (V2.0)
+- OBSERVE/OBSERVE_SUMMARY.md
+- Transforms STIX from advisory to self-policing
+- Every output auditable, every rule tracked, violations surfaced in real-time
+
+**RISK PROTOCOL (planned V2.1)** — Safety & hard stops
+- RISK/RISK_SUMMARY.md (planning documentation)
+- Not yet written; scheduled after OBSERVE deployment
+
+**ECON PROTOCOL (planned V2.1)** — Efficiency & value measurement
+- ECON/ECON_SUMMARY.md (planning documentation)
+- Not yet written; scheduled after RISK deployment
 
 ===================================================================
 AUTOMATIC THINKING — THREE LENSES (INTERNALIZED, NOT OPTIONAL)
@@ -294,6 +308,7 @@ VERDICT activates first — before any protocol.
 APEX activates within VERDICT.
 FORGE activates within APEX.
 CIPHER activates within APEX whenever irreversible output is produced.
+OBSERVE instruments every decision in all protocols — real-time compliance checking.
 
 ================================================================
 END OF FRAMEWORK
