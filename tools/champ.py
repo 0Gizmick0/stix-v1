@@ -349,8 +349,8 @@ Modes:
 
     parser.add_argument('pdfs', nargs='*', help='PDF file(s) to convert')
     parser.add_argument('--dir', help='Batch convert all PDFs in folder (recursive)')
-    parser.add_argument('--out', default=os.path.expanduser('~/Desktop/CHAMP/output'),
-                        help='Output folder (default: ~/Desktop/CHAMP/output)')
+    parser.add_argument('--out', default='./extracted_text',
+                        help='Output folder (default: ./extracted_text)')
     parser.add_argument('--mode', choices=['auto', 'text', 'ocr', 'images'], default='auto',
                         help='Extraction mode (default: auto-detect)')
     parser.add_argument('--chunk', type=int, default=80,
