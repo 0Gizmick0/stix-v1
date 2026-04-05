@@ -24,6 +24,24 @@ A formal governance framework that defines **109 rules** for AI agents to ensure
 
 ---
 
+## 📦 Includes: CHAMP (PDF Tool)
+
+**CHAMP** = Convert Here And Make Plaintext — saves **95% tokens** reading PDFs.
+
+- Read a 50-page PDF in ~150 tokens (vs 3000 tokens with vision)
+- Included in `tools/champ.py` — zero setup
+- Modes: auto-detect, text extraction, OCR, image extraction
+- Perfect for reading CORE_PROTOCOL PDFs before uploading
+
+```bash
+python tools/champ.py document.pdf --mode auto
+# Outputs plaintext to ./extracted_text/
+```
+
+**Why it matters:** If you use STIX with PDFs, CHAMP cuts your token cost 20x.
+
+---
+
 ## What STIX Does
 
 **Prevents failure BEFORE it happens.**
