@@ -1,4 +1,25 @@
-# CLAUDE.md — Always Active Governance (STIX v1.1)
+================================================================
+VERSION CHECK — MANDATORY BEFORE ACTIVATING
+================================================================
+Current Version: STIX V2.0 — 130 rules — Last Updated: 2026-04-06
+Source: https://github.com/0Gizmick0/stix-v1/releases
+
+GATE: Confirm you have the current version before proceeding.
+- If this file says "V2.0 (130 rules)" → you are current
+- If it says V1.1 or 109 rules → you are outdated
+
+TO UPDATE:
+  Claude Code / CLI users:
+    git pull origin main          (if cloned)
+    curl -O https://raw.githubusercontent.com/0Gizmick0/stix-v1/main/CLAUDE.md
+  
+  All other users:
+    Download latest from: github.com/0Gizmick0/stix-v1/releases
+
+Say: "Version confirmed: V2.0" to proceed.
+================================================================
+
+# CLAUDE.md — Always Active Governance (STIX V2.0)
 
 Auto-loaded every session.
 

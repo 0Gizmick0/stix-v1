@@ -2,9 +2,9 @@
 
 **STIX** = **S**trategic **T**hinking and **I**ntegrity **X**
 
-A formal governance framework that defines **109 rules** for AI agents to ensure sound decisions, consistent execution, and integrity. Used in Claude Code, Claude.ai, ChatGPT, and custom AI systems.
+A formal governance framework that defines **130 rules** for AI agents to ensure sound decisions, consistent execution, and integrity. Used in Claude Code, Claude.ai, ChatGPT, and custom AI systems.
 
-**Status:** V1.1 complete (101 rules) + V2.0 OBSERVE deployed (8 rules) + V2.1 roadmap (RISK/ECON planned)
+**Status:** V2.0 complete — 130 rules active (RELAY + OBSERVE + RISK + ECON all deployed)
 
 ---
 
@@ -17,7 +17,7 @@ A formal governance framework that defines **109 rules** for AI agents to ensure
 2. Paste → Into Claude.ai, ChatGPT, or your AI chat
 3. Upload → One PDF from CORE_PROTOCOL/ folder
 4. Ask → "Analyze using three-lens framework"
-5. Done → 109 rules are now active
+5. Done → 130 rules are now active
 ```
 
 **That's it. Framework is live.**
@@ -60,7 +60,7 @@ Without STIX | With STIX
 
 ## The Framework (Simplified)
 
-STIX = **109 rules** organized into **3 types**:
+STIX = **130 rules** organized into **9 protocols**:
 
 ### Core Rules (V1.1 — 101 rules, all active)
 | Protocol | Rules | What It Does |
@@ -71,16 +71,13 @@ STIX = **109 rules** organized into **3 types**:
 | **ARCHITECT** | 20 | Planning & decomposition |
 | **CIPHER** | 11 | Irreversible action gates |
 
-### New Rules (V2.0 — 8 rules, now active)
+### V2.0 Rules (29 rules — now active)
 | Protocol | Rules | What It Does |
 |----------|-------|--------------|
+| **RELAY** | 8 | Communication relay & cross-boundary integrity |
 | **OBSERVE** | 8 | Real-time compliance tracking |
-
-### Future Rules (V2.1 — Planned, not yet deployed)
-| Protocol | Rules | What It Does |
-|----------|-------|--------------|
-| **RISK** | — | Hard stops & safety limits |
-| **ECON** | — | Cost-value measurement |
+| **RISK** | 8 | Hard stops & safety limits |
+| **ECON** | 6 | Cost-value measurement & efficiency gates |
 
 ---
 
@@ -142,12 +139,12 @@ Load CLAUDE.md into the session (Claude Code will auto-detect it).
 Say: "Load the STIX framework from CLAUDE.md"
 ```
 
-**Result:** All 109 rules + protocol files automatically available. The AI reads and enforces every rule from CLAUDE.md + local files.
+**Result:** All 130 rules + protocol files automatically available. The AI reads and enforces every rule from CLAUDE.md + local files.
 
 **Verification:** The AI should respond with:
 ```
-PROTOCOL STACK ACTIVE : VERDICT + APEX + FORGE + CIPHER + ARCHITECT + OBSERVE
-RULE COUNT            : 109 (V1.1: 101 rules + V2.0 OBSERVE: 8 rules)
+PROTOCOL STACK ACTIVE : VERDICT + APEX + FORGE + CIPHER + ARCHITECT + RELAY + OBSERVE + RISK + ECON (V2.0)
+RULE COUNT            : 130
 ```
 
 ---
@@ -189,7 +186,7 @@ Before we start work:
 Ready? Then for my first task: [your actual request]
 ```
 
-**Result:** AI confirms all 109 rules are active. You can now use STIX-guided thinking.
+**Result:** AI confirms all 130 rules are active. You can now use STIX-guided thinking.
 
 ---
 
@@ -518,11 +515,11 @@ stix-v1/
 │   ├── OB7_METRICS_COLLECTION.md
 │   └── OB8_FRAMEWORK_DRIFT_TRACKING.md
 │
-├── 📁 RISK/                                  (Planned V2.1 — Safety & Hard Stops)
-│   └── RISK_SUMMARY.md                       (Rules not yet written)
+├── 📁 RISK/                                  (8 rules — Safety & Hard Stops [V2.0 NEW])
+│   └── RISK_SUMMARY.md
 │
-├── 📁 ECON/                                  (Planned V2.1 — Efficiency & Value)
-│   └── ECON_SUMMARY.md                       (Rules not yet written)
+├── 📁 ECON/                                  (6 rules — Efficiency & Value [V2.0 NEW])
+│   └── ECON_SUMMARY.md
 │
 ├── 📁 v2.0/                                  (V2.0 Planning & Roadmap)
 │   ├── V2_INDEX.md                           (Complete V2.0 index)
@@ -557,14 +554,14 @@ stix-v1/
 | **CIPHER/** | G1–G11 (11) | Irreversible commitment gates |
 | **RELAY/** | RL1–RL8 (8) | Communication relay (V2.0) |
 | **GOVERNING_BOUNDARIES/** | B1–B7 (7) | Enforcement boundaries |
-| **OBSERVE/** | OB1–OB8 (8) | Transparency & compliance (V2.0 NEW) |
-| **RISK/** | — | Planned V2.1 (safety thresholds) |
-| **ECON/** | — | Planned V2.1 (efficiency measurement) |
+| **OBSERVE/** | OB1–OB8 (8) | Transparency & compliance (V2.0) |
+| **RISK/** | RK1–RK8 (8) | Safety & hard stops (V2.0) |
+| **ECON/** | EC1–EC6 (6) | Efficiency & value measurement (V2.0) |
 | **v2.0/** | — | Roadmap + planning documents |
 | **templates/** | — | Starter files for new projects |
 | **tools/** | — | CHAMP PDF extraction utility |
 
-**Total: 109 rules (101 active + 8 OBSERVE deployed)**
+**Total: 130 rules (all active)**
 
 ## Built-In Tools
 
@@ -587,7 +584,7 @@ python tools/champ.py document.pdf --mode images
 
 ## FAQ
 
-**Q: Do I need to read all 101 rules?**
+**Q: Do I need to read all 130 rules?**
 A: No. CLAUDE.md activates them automatically. You only look up specific rules when you want details.
 
 **Q: What if STIX conflicts with my existing process?**
@@ -651,9 +648,54 @@ A: Yes. Contributions welcome. Fork it, improve it, push back to the community.
 
 ---
 
+## Staying Current
+
+**Watch for updates:** On GitHub → Star → Watch → "Releases only".
+You'll get a notification when new versions ship.
+
+**Check your version:** Look at the top of `CLAUDE.md`:
+- Shows "STIX V2.0 — 130 rules" → you are current
+- Shows V1.1 or 109 rules → download the latest
+
+**Update:**
+```bash
+git pull origin main          # If you cloned the repo
+```
+Or download fresh from: `github.com/0Gizmick0/stix-v1/releases`
+
+---
+
+## Do I Need the Repo?
+
+**No. CLAUDE.md is 100% standalone.**
+
+| What You Need | Why |
+|---|---|
+| CLAUDE.md only | Full 130-rule framework active immediately. Start here. |
+| + PDF (optional) | Upload `STIX_V2.0_MASTER_PROTOCOL.pdf` for complete rule definitions. |
+| + Full repo (optional) | Customize, extend, read source rules. Not required. |
+
+Quick start = download CLAUDE.md + paste it. Done.
+
+---
+
+## Maximum Coverage: Upload the Complete Rulebook
+
+For deepest rule coverage, upload `STIX_V2.0_MASTER_PROTOCOL.pdf` alongside CLAUDE.md.
+
+| Platform | How |
+|----------|-----|
+| Claude.ai | Attach PDF in conversation |
+| ChatGPT | Upload as file attachment |
+| API | Run CHAMP to extract text → inject as context |
+
+Say: "The attached PDF contains the full STIX V2.0 rule definitions (130 rules)."
+
+---
+
 ## License
 
-STIX v1.1 is licensed under **AGPL-3.0** — free to use with flexibility for commercial projects.
+STIX V2.0 is licensed under **AGPL-3.0** — free to use with flexibility for commercial projects.
 
 ### What This Means
 
