@@ -8,19 +8,19 @@ A formal governance framework that defines **130 rules** for AI agents to ensure
 
 ---
 
-## 🚀 Quick Start (3 Minutes)
+## 🚀 Quick Start (2 Minutes)
 
 **No setup. No install. Just paste and go.**
 
 ```
-1. Download → CLAUDE.md (13KB, plain text)
-2. Paste → Into Claude.ai, ChatGPT, or your AI chat
-3. Upload → One PDF from CORE_PROTOCOL/ folder
-4. Ask → "Analyze using three-lens framework"
-5. Done → 130 rules are now active
+1. Download → CLAUDE.md from this repo
+2. Paste → Entire CLAUDE.md into Claude.ai, ChatGPT, or your LLM
+3. Say → "Version confirmed: V2.0"
+4. Optional → Upload STIX_V2.0_MASTER_PROTOCOL.pdf for complete rule definitions
+5. Done → All 130 rules are now active
 ```
 
-**That's it. Framework is live.**
+**That's it. Framework enforces immediately.**
 
 ---
 
