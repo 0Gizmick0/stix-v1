@@ -173,19 +173,17 @@ Download `CLAUDE.md` from this repo (copy the raw content).
 4. Hit send (let the AI read it)
 ```
 
-#### Step 3: Upload the Master Protocol
-Upload ONE markdown file to provide the rule definitions:
-- Best choice: `CORE_PROTOCOL/APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_2026-03-26_2046.md`
+#### Step 3: Upload the Complete Rulebook
+Upload the consolidated protocol file with all 130 rule definitions:
+- **Best choice:** `STIX_V2.0_MASTER_PROTOCOL.pdf` or `STIX_V2.0_MASTER_PROTOCOL.md`
 
-**Or** if you prefer to read from files locally:
-- Download `CORE_PROTOCOL/` folder
-- Upload the .md files (not PDFs)
+This single file contains all rules (summaries + definitions). No need to juggle multiple CORE_PROTOCOL files.
 
 #### Step 4: Activate & Verify
 **Say to the AI:**
 
 ```
-You now have the STIX governance framework loaded (CLAUDE.md + CORE_PROTOCOL).
+You now have the STIX governance framework loaded (CLAUDE.md + STIX_V2.0_MASTER_PROTOCOL).
 
 Before we start work:
 - Confirm you understand the three-lens thinking (CS, Dev, Engineer)
@@ -204,13 +202,15 @@ Ready? Then for my first task: [your actual request]
 **Best for:** On-the-go decisions, same process as browser.
 
 #### Steps:
-1. Download `CLAUDE.md` (email it to yourself or save to notes)
+1. Download both:
+   - `CLAUDE.md` (email to yourself or save to notes)
+   - `STIX_V2.0_MASTER_PROTOCOL.pdf` or `.md` (if app supports file upload)
 2. Open Claude/ChatGPT mobile app → New chat
 3. Copy-paste CLAUDE.md into the chat
-4. Upload markdown file from CORE_PROTOCOL/ (if app supports file upload)
-5. Use exact same activation prompt as Claude.ai above
+4. Upload STIX_V2.0_MASTER_PROTOCOL file (if app supports file upload)
+5. Say: "Version confirmed: V2.0"
 
-**Note:** Some mobile apps have file upload limits. If you can't upload, just use CLAUDE.md + describe rules in text.
+**Note:** Some mobile apps have file upload limits. If you can't upload the protocol file, paste the CLAUDE.md text and the app will work with reduced context.
 
 ---
 
@@ -218,7 +218,7 @@ Ready? Then for my first task: [your actual request]
 
 **Best for:** Building your own AI product.
 
-#### Option A: Simple (Copy-Paste System Prompt)
+#### Option A: Simple (CLAUDE.md Only)
 
 ```python
 # Load CLAUDE.md content
@@ -239,25 +239,38 @@ response = client.messages.create(
 )
 ```
 
-#### Option B: Advanced (With Rule Files)
+**Note:** This works but lacks rule definitions. See Option B for better coverage.
+
+#### Option B: Complete (CLAUDE.md + Rule Definitions)
 
 ```python
-import os
-
-# Load all protocol files
-protocols = {}
-for file in os.listdir("CORE_PROTOCOL/"):
-    if file.endswith(".md"):
-        with open(f"CORE_PROTOCOL/{file}", "r") as f:
-            protocols[file] = f.read()
-
-# Load main framework
+# Load CLAUDE.md operating manual
 with open("CLAUDE.md", "r") as f:
-    system_prompt = f.read()
+    claude_md = f.read()
 
-# Use in your system
-# (frameworks like Anthropic, LangChain, LLamaIndex can ingest files)
+# Load complete rule definitions
+with open("STIX_V2.0_MASTER_PROTOCOL.md", "r") as f:
+    protocol_definitions = f.read()
+
+# Combine for maximum context
+system_prompt = f"""{claude_md}
+
+---
+
+{protocol_definitions}
+
+[Your additional instructions below]
+"""
+
+# Send to your AI API
+response = client.messages.create(
+    model="claude-opus-4-6",
+    system=system_prompt,
+    messages=[...]
+)
 ```
+
+**Best approach:** Load both CLAUDE.md + STIX_V2.0_MASTER_PROTOCOL.md for complete framework with all 130 rules defined.
 
 ---
 
