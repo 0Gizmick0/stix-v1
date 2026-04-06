@@ -1,10 +1,10 @@
 ---
 name: STIX Master Index
 location: Framework repository/
-source_protocol: STIX v1.1 — Structured Tiers for Integrated Execution
+source_protocol: STIX v2.0 — Structured Tiers for Integrated Execution
 indexed: 2026-03-27
-last_updated: 2026-03-29
-total_framework_rules: 109 (101 active + 8 OBSERVE + 24 planned)
+last_updated: 2026-04-05
+total_framework_rules: 130 (101 V1.1 + 8 RELAY + 8 OBSERVE + 8 RISK + 6 ECON - ratified & active)
 provenance: F11 — Every record carries source, timestamp, and version of the logic that produced it.
 ---
 
@@ -12,7 +12,7 @@ provenance: F11 — Every record carries source, timestamp, and version of the l
 **Full Name:** Structured Tiers for Integrated Execution
 **Location:** Framework repository/
 **Indexed:** 2026-03-27
-**Governing Framework:** STIX v1.1 (101 rules) + v2.0 OBSERVE (8 rules) = 109 total
+**Governing Framework:** STIX v2.0 | 130 rules | VERDICT + APEX + FORGE + CIPHER + ARCHITECT + RELAY + OBSERVE + RISK + ECON
 **Last Updated:** 2026-04-05
 
 ---
@@ -30,39 +30,45 @@ These folders contain detailed summaries of every rule in the governing protocol
 | `APEX/EXACTNESS/` | Article II-X | X1–X13 (13 rules) | PRECISION | `EXACTNESS_SUMMARY.md` |
 | `FORGE/` | Article III | F1–F13 (13 rules) | ALIGNMENT | `FORGE_SUMMARY.md` |
 | `CIPHER/` | Article IV | G1–G11 (11 rules) | INTEGRITY | `CIPHER_SUMMARY.md` |
-| `RELAY/` | Article V | RL1–RL8 (8 rules) | JUDGMENT | `RELAY_SUMMARY.md` |
-| `OBSERVE/` | Article V | OB1–OB8 (8 rules) | TRANSPARENCY | `OBSERVE_SUMMARY.md` |
-| `RISK/` | Article V (planned V2.1) | — | SAFETY | `RISK_SUMMARY.md` |
-| `ECON/` | Article V (planned V2.1) | — | EFFICIENCY | `ECON_SUMMARY.md` |
+| `RELAY/` | Article V | RL1–RL8 (8 rules) | INTEGRITY | `RELAY_SUMMARY.md` |
+| `OBSERVE/` | Article VII | OB1–OB8 (8 rules) | TRANSPARENCY | `OBSERVE_SUMMARY.md` |
+| `RISK/` | Article VIII | RK1–RK8 (8 rules) | SAFETY | `RISK_SUMMARY.md` |
+| `ECON/` | Article IX | EC1–EC6 (6 rules) | EFFICIENCY | `ECON_SUMMARY.md` |
 | `GOVERNING_BOUNDARIES/` | Appendix A | B1–B7 (7 boundaries) | ALL VALUES | `GOVERNING_BOUNDARIES_SUMMARY.md` |
 
-**Total: 109 rules active (101 V1.1 + 8 V2.0 OBSERVE). 24 rules planned (V2.1 RISK/ECON/sub-protocols)**
-**Active Protocols:** VERDICT (7) + APEX (51) + FORGE (13) + CIPHER (11) + ARCHITECT (20) + RELAY (8) + OBSERVE (8)
-**Planned (V2.1):** RISK + ECON + RELAY sub-protocols (PUBLISH, API_OUT, SOCIAL)
+**Total: 130 rules active (V2.0 — all protocols ratified & active)**
+**Active Protocols (V2.0):** VERDICT (7) + APEX (51) + FORGE (13) + CIPHER (11) + ARCHITECT (20) + RELAY (8) + OBSERVE (8) + RISK (8) + ECON (6) + Boundaries (7)
+**Deferred (V2.1):** RELAY sub-protocols (PUBLISH, API_OUT, SOCIAL) — structure ready, sub-rules pending
 **Appendices: Appendix A (B1–B7), Appendix B (Protocol Evolution), Appendix C (Error Classification), Appendix D (Operating Cadence)**
 
 ---
 
-## Binding Sequence (Non-Changeable)
+## Binding Sequence (Non-Changeable) — V2.0
 
 ```
 VERDICT activates first — before any protocol.
-APEX activates within VERDICT.
-FORGE activates within APEX.
-CIPHER activates within APEX whenever email or any irreversible output is produced.
-Full invocation: VERDICT + APEX/FORGE + CIPHER active.
+ECON checks whether work is worth starting (efficiency gate).
+OBSERVE activates at session open, monitors throughout (transparency).
+APEX activates within VERDICT (with ARCHITECT decomposition before execution).
+FORGE activates within APEX (maintains state, alignment).
+RISK activates when high-stakes actions proposed (safety halt gate).
+CIPHER activates within APEX whenever email or irreversible output (integrity).
+RELAY activates before any outward-facing action (cross-boundary integrity).
 ```
 
 ---
 
-## Core Values (Non-Changeable)
+## Core Values (Non-Changeable) — V2.0
 
 | Value | Layer |
 |-------|-------|
-| JUDGMENT | VERDICT |
+| JUDGMENT | VERDICT + ARCHITECT |
 | PRECISION | APEX |
 | ALIGNMENT | FORGE |
-| INTEGRITY | CIPHER |
+| INTEGRITY | CIPHER + RELAY |
+| TRANSPARENCY | OBSERVE |
+| SAFETY | RISK |
+| EFFICIENCY | ECON |
 
 ---
 

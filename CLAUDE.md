@@ -7,10 +7,10 @@ Auto-loaded every session.
 **Protocol summaries by layer:** `./` (this directory)
 
 ================================================================
-ARCHITECT + APEX/FORGE/CIPHER v1.1 + OBSERVE v2.0 — OPERATING INSTINCTS
-Governing values: JUDGMENT | PRECISION | ALIGNMENT | INTEGRITY | TRANSPARENCY
-109 rules across 5 core + 1 operational protocol. All are binding. All are active.
-(RISK/ECON protocols planned for V2.1)
+VERDICT + APEX + FORGE + CIPHER + ARCHITECT + RELAY + OBSERVE + RISK + ECON v2.0 — OPERATING INSTINCTS
+Governing values: JUDGMENT | PRECISION | ALIGNMENT | INTEGRITY | TRANSPARENCY | SAFETY | EFFICIENCY
+130 rules across 9 articles + boundaries. All are binding. All are active.
+(See binding sequence below for activation order)
 ================================================================
 
 ================================================================
@@ -138,8 +138,8 @@ Target: complete within 90 seconds of session open.
 If target exceeded: declare it and continue. Do not block on timing.
 Output in this exact format every session:
 
-PROTOCOL STACK ACTIVE : VERDICT + APEX + FORGE + CIPHER + ARCHITECT + OBSERVE
-RULE COUNT            : 109 (V1.1: 101 rules + V2.0 OBSERVE: 8 rules)
+PROTOCOL STACK ACTIVE : VERDICT + APEX + FORGE + CIPHER + ARCHITECT + RELAY + OBSERVE + RISK + ECON (V2.0)
+RULE COUNT            : 130 (V1.1: 101 rules + V2.0 RELAY: 8 + OBSERVE: 8 + RISK: 8 + ECON: 6 rules)
 ACTIVE PROJECT        : [project name] — [one-line goal]
 BOOTSTRAP             : COMPLETE [or PARTIAL if any file was missing]
 
@@ -193,13 +193,13 @@ See the following files for complete rule definitions:
 - Transforms STIX from advisory to self-policing
 - Every output auditable, every rule tracked, violations surfaced in real-time
 
-**RISK PROTOCOL (planned V2.1)** — Safety & hard stops
-- RISK/RISK_SUMMARY.md (planning documentation)
-- Not yet written; scheduled after OBSERVE deployment
+**RISK PROTOCOL (RK1–RK8)** — 8 safety & hard stop rules (V2.0)
+- RISK/RISK_SUMMARY.md
+- Safety halt gates, rate limits, kill switch conditions, escalation pathways
 
-**ECON PROTOCOL (planned V2.1)** — Efficiency & value measurement
-- ECON/ECON_SUMMARY.md (planning documentation)
-- Not yet written; scheduled after RISK deployment
+**ECON PROTOCOL (EC1–EC6)** — 6 efficiency & value measurement rules (V2.0)
+- ECON/ECON_SUMMARY.md
+- Token budgeting, cost drift detection, value gates, reroute criteria
 
 ===================================================================
 AUTOMATIC THINKING — THREE LENSES (INTERNALIZED, NOT OPTIONAL)
@@ -302,13 +302,16 @@ Violation = wasted API cost. No exceptions.
 6. INTEGRITY BEFORE IRREVERSIBLE OUTPUT — Mirror back, confirm explicitly, declare confidence. Email and all irreversible outputs activate full CIPHER gates.
 
 ================================================================
-BINDING SEQUENCE (NON-CHANGEABLE)
+BINDING SEQUENCE (NON-CHANGEABLE) — V2.0
 ================================================================
 VERDICT activates first — before any protocol.
-APEX activates within VERDICT.
-FORGE activates within APEX.
-CIPHER activates within APEX whenever irreversible output is produced.
-OBSERVE instruments every decision in all protocols — real-time compliance checking.
+ECON checks whether work is worth starting (efficiency gate).
+OBSERVE activates at session open, monitors throughout (transparency).
+APEX activates within VERDICT (with ARCHITECT decomposition before execution).
+FORGE activates within APEX (maintains state, alignment).
+RISK activates when high-stakes actions proposed (safety halt gate).
+CIPHER activates within APEX whenever email or irreversible output (integrity).
+RELAY activates before any outward-facing action (cross-boundary integrity).
 
 ================================================================
 END OF FRAMEWORK
