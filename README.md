@@ -8,19 +8,28 @@ A formal governance framework that defines **130 rules** for AI agents to ensure
 
 ---
 
-## 🚀 Quick Start (2 Minutes)
+## 🚀 Quick Start
 
-**No setup. No install. Just paste and go.**
+**No setup. No install. Just download two files and paste/upload them.**
 
 ```
-1. Download → CLAUDE.md from this repo
-2. Paste → Entire CLAUDE.md into Claude.ai, ChatGPT, or your LLM
+1. Download both:
+   - CLAUDE.md (the operating manual)
+   - STIX_V2.0_MASTER_PROTOCOL.md or .pdf (all 130 rule definitions)
+
+2. Paste/Upload into Claude.ai, ChatGPT, or your LLM:
+   - Paste entire CLAUDE.md as text
+   - Upload STIX_V2.0_MASTER_PROTOCOL.pdf as attachment (or paste the .md file)
+
 3. Say → "Version confirmed: V2.0"
-4. Optional → Upload STIX_V2.0_MASTER_PROTOCOL.pdf for complete rule definitions
-5. Done → All 130 rules are now active
+
+4. Done → All 130 rules active + fully defined
 ```
 
-**That's it. Framework enforces immediately.**
+**Why both files?**
+- CLAUDE.md = operating instructions (references rules by ID)
+- STIX_V2.0_MASTER_PROTOCOL = actual rule definitions
+- Together = complete working system
 
 ---
 
@@ -667,29 +676,30 @@ Or download fresh from: `github.com/0Gizmick0/stix-v1/releases`
 
 ## Do I Need the Repo?
 
-**No. CLAUDE.md is 100% standalone.**
+**CLAUDE.md alone won't work. You need the rules too.**
 
 | What You Need | Why |
 |---|---|
-| CLAUDE.md only | Full 130-rule framework active immediately. Start here. |
-| + PDF (optional) | Upload `STIX_V2.0_MASTER_PROTOCOL.pdf` for complete rule definitions. |
-| + Full repo (optional) | Customize, extend, read source rules. Not required. |
+| CLAUDE.md only | Just the operating manual — references rules but doesn't define them. Incomplete. |
+| CLAUDE.md + PDF/Markdown | STIX_V2.0_MASTER_PROTOCOL.pdf or .md has all 130 rule definitions. This is the working combination. |
+| Full repo | For customization, source material, templates, tools. Not required for basic use. |
 
-Quick start = download CLAUDE.md + paste it. Done.
+**Minimum to get working:** Download both CLAUDE.md + STIX_V2.0_MASTER_PROTOCOL.md (or PDF). Paste/upload both. Done.
 
 ---
 
-## Maximum Coverage: Upload the Complete Rulebook
+## How to Upload the Complete Rulebook
 
-For deepest rule coverage, upload `STIX_V2.0_MASTER_PROTOCOL.pdf` alongside CLAUDE.md.
+Upload `STIX_V2.0_MASTER_PROTOCOL.pdf` or `.md` alongside CLAUDE.md. This gives you all 130 rule definitions in one file.
 
 | Platform | How |
 |----------|-----|
-| Claude.ai | Attach PDF in conversation |
-| ChatGPT | Upload as file attachment |
-| API | Run CHAMP to extract text → inject as context |
+| Claude.ai | Attach PDF in conversation + paste CLAUDE.md |
+| ChatGPT | Upload PDF as file attachment + paste CLAUDE.md |
+| API | Extract PDF to text via CHAMP → inject CLAUDE.md + extracted text as context |
+| Copy-paste | Paste CLAUDE.md + paste contents of STIX_V2.0_MASTER_PROTOCOL.md |
 
-Say: "The attached PDF contains the full STIX V2.0 rule definitions (130 rules)."
+When you have both files loaded, confirm: "Version confirmed: V2.0" — then the full system is active.
 
 ---
 
