@@ -308,7 +308,7 @@ If you see this → **STIX is active and working. ✅**
 | Rules not being cited | Ask: "Which STIX rules apply here? (cite by ID: E13, A20, etc.)" |
 | Framework feels "advisory" | It's normal at first. After 2-3 uses, the AI internalizes it. The thinking becomes automatic. |
 | File too large to paste | Use CHAMP tool to extract PDFs as text → paste extracted .txt instead |
-| Missing rule definitions | Ensure you uploaded CORE_PROTOCOL/.md files (the .md versions are what the AI reads) |
+| Missing rule definitions | Ensure you uploaded STIX_V2.0_MASTER_PROTOCOL.pdf or .md alongside CLAUDE.md. This file has all 130 rules. |
 
 ---
 
@@ -343,12 +343,14 @@ system_prompt = f"{stix_framework}\n\n[Your additional instructions]"
 
 ## How It All Works Together
 
-- **`CLAUDE.md`** = The operating manual (copy-paste anywhere, works standalone)
-- **Rule summaries** (APEX/, ARCHITECT/, etc.) = Reference docs (look up specific rules)
-- **PDFs** (CORE_PROTOCOL/) = Authoritative source (when you need the full story)
+- **`CLAUDE.md`** = The operating manual (references rules by ID)
+- **`STIX_V2.0_MASTER_PROTOCOL.md/.pdf`** = Complete rule definitions (all 130 rules in one file)
+- **Together** = Working system (paste CLAUDE.md + upload protocol file = framework active)
+- **Rule summaries** (APEX/, ARCHITECT/, etc.) = Optional reference docs for digging deeper
+- **CORE_PROTOCOL/** = Authoritative source PDFs (for understanding rule history/evolution)
 - **`CHAMP.py`** = Utility tool (extract PDFs to save tokens)
 
-**You only need CLAUDE.md to get started.** Everything else is reference material that makes the framework easier to understand and extend.
+**Minimum to get working:** CLAUDE.md + STIX_V2.0_MASTER_PROTOCOL. Everything else is optional reference material.
 
 ## V2.0 — The Roadmap
 
