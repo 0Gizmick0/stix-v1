@@ -1,5 +1,7 @@
 # STIX — A Governance Framework for AI
 
+<sub>**Version:** STIX V2.0 · **Rules:** 148 (141 distributed + 7 gated host-only) · **Last updated:** 2026-04-08 · **License:** AGPL-3.0</sub>
+
 **STIX makes AI catch its own mistakes _before_ they cost you.** It's a set of 148 rules you load into Claude, ChatGPT, Gemini, or any other LLM as a system prompt. Once loaded, the AI is forced to:
 
 - Think through every decision via **three analytical lenses simultaneously** (Computer Scientist / Software Developer / Engineer)
