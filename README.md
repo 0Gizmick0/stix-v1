@@ -19,9 +19,15 @@ It's free, MIT-compatible (AGPL-3.0), works in any chat UI or API, and takes abo
 
 ## ⚡ 60-Second Quick Start
 
+> **New users, start here:** if you're pasting STIX into a browser chat (Claude.ai, ChatGPT, Gemini), **use [`CLAUDE_LITE.md`](CLAUDE_LITE.md)** instead of the full `CLAUDE.md`, and follow the walkthrough in **[`GETTING_STARTED.md`](GETTING_STARTED.md)**. The lite file is a browser-safe variant that drops the filesystem-dependent bootstrap steps (audit logs, project files, mandatory budget questions) that silently fail in a chat UI. Same 141 rules, same three-lens discipline, same hard gates — just without the assumptions that break when there's no disk to read from. Two copy-pastes, under five minutes, no install.
+>
+> **Claude Code / Cursor / IDE users:** keep using the full `CLAUDE.md` below. It's the filesystem-aware variant and assumes a working directory.
+
 **You need 2 files: `CLAUDE.md` and `STIX_V2.0_MASTER_PROTOCOL.md`.** That's it. Both are in this repo's root.
 
 ### Option A — Claude.ai or ChatGPT (browser)
+
+> **Most new users should use [`CLAUDE_LITE.md`](CLAUDE_LITE.md) instead** — see the "new users, start here" callout above. Option A below is the legacy full-file path using the filesystem-aware `CLAUDE.md`, which has bootstrap steps that silently fail in browser chats.
 
 1. Open `CLAUDE.md`, copy the entire contents, paste it as your first message in a new chat. Send.
 2. Attach `STIX_V2.0_MASTER_PROTOCOL.md` as a file in your next message (or paste it if your UI accepts long pastes).
