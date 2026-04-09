@@ -70,41 +70,23 @@ Internalize:
 These lenses are now active. All decisions will use them.
 This is not a declaration. This is how your thinking operates.
 
---- STEP 3.6: CHAMP ENFORCEMENT CHECK (MANDATORY) ---
-AUTOMATIC TRIGGER: Any time you ask to read or process a PDF file.
+--- STEP 3.6: THE PDF COST PRINCIPLE ---
+AUTOMATIC TRIGGER: Any time you are asked to read or process a PDF file.
 
-**RULE:** PDFs are expensive to read via vision tokens. CHAMP extracts PDFs to plaintext OR images (near-zero token cost).
-**ENFORCEMENT:** Before any Read tool call on .pdf files, CHAMP MUST be invoked first.
+**Principle, not a shell command:** Reading a PDF as vision tokens costs roughly 20× more than reading its extracted text content. Before processing a PDF, ensure it has been extracted to text first. This applies regardless of which extractor you use.
 
-**CHAMP — Hybrid PDF Extraction:**
-Supports three extraction modes:
-- **text** (pdftotext): Fast extraction from text-based PDFs → plaintext .txt
-- **ocr** (Tesseract): Slow but complete extraction from scanned PDFs → plaintext .txt
-- **images** (pdfimages): Extract pages as JPEG files → .jpg (best for complex/mixed PDFs)
-- **auto** (default): Auto-detect PDF type, choose best mode automatically
+**What this means in practice for you (the AI):**
+- If you have tool access and a shell is available: invoke whatever PDF-to-text extractor is on the system. This repo ships `./tools/champ.py` as a reference implementation (modes: auto, text, ocr, images), but `pdftotext file.pdf -`, `pandoc file.pdf -o file.txt`, or any other extractor works equivalently.
+- If you are running in a browser chat without a shell: you cannot extract PDFs yourself. Tell the user to extract the PDF and paste the text, or to use a tool of their choice and share the output. Do NOT hallucinate file reads or pretend to have read the PDF.
+- If you have vision capability and must see the PDF as an image (e.g., the content is visual, not text — diagrams, scanned handwriting, layout-dependent information): do so, but note the token cost in your response so the user understands why it's expensive.
 
-**Gate logic:**
-  1. IF file ends in `.pdf` (case-insensitive) THEN
-  2. RUN: `champ [filename] [--mode auto|text|ocr|images]`
-  3. CHAMP auto-detects PDF type and extracts accordingly
-  4. Text PDF → plaintext .txt file (~20x cheaper than vision tokens)
-  5. Image/scanned PDF → OCR'd plaintext or images (your choice)
-  6. THEN: Read the extracted .txt or .jpg files instead of the .pdf
-  7. NO exceptions. This is mandatory.
+**Cost reference (verified):**
+- Text PDF (13 pages): ~150 tokens via text extraction vs ~3,000 tokens via vision = **~95% token reduction**
+- This reduction compounds across repeated reads of the same document
 
-**Invocation:**
-  - Auto-detect (recommended): `champ file.pdf` (detects type, chooses mode)
-  - Force text extraction: `champ file.pdf --mode text` (fast, text PDFs only)
-  - Force OCR (scanned): `champ file.pdf --mode ocr` (slow, handles scans)
-  - Extract as images: `champ file.pdf --mode images` (best for complex layouts)
-  - Batch convert: `champ --dir /folder/path` (auto-detect all)
-  - Custom output: `champ file.pdf --out /path`
+**Reference implementation:** `./tools/champ.py` is shipped in this repo. You do not have to use it — any text extractor is fine. The framework enforces the principle (extract first), not any particular tool.
 
-**Cost savings (verified):**
-- Text PDF (13 pages): ~150 tokens (Read tool) vs ~3000 tokens (vision)
-- **Savings: ~95% token cost reduction**
-
-CHAMP is located in `./tools/champ.py`
+**This is a principle, not a mechanical gate.** There is no hook currently enforcing that a `.pdf` Read is preceded by an extraction step. Compliance is on the discipline of whichever AI is running this framework. See `STATUS.md` for the honest coverage picture on this rule.
 
 --- STEP 3.7: ASK FOR SESSION CONSTRAINT ---
 
@@ -306,16 +288,26 @@ This isn't a checklist with 3 questions. It's **all three analyses happening at 
 and the decision shows that thinking was already complete.
 
 ================================================================
-FILE READING — MANDATORY TOKEN EFFICIENCY RULE
+FILE READING — THE PDF COST PRINCIPLE
 ================================================================
-NEVER use Read tool on PDF files directly (costs vision tokens).
-ALWAYS use CHAMP first:
-  champ file.pdf --stdout          → full text to stdout
-  champ file.pdf --grep "keyword"  → targeted extract (cheapest)
-  champ file.pdf output.txt        → save as text file, then Read it
-Tool location: ./tools/champ.py (callable as: champ)
-Only use Read tool on .md, .txt, .py, and other plain text files.
-Violation = wasted API cost. No exceptions.
+Reading a PDF via vision costs roughly 20× more tokens than reading its
+extracted text. Before processing a PDF, extract it to text first.
+
+The framework enforces the principle, not any particular tool. Use whatever
+extractor is available in your environment:
+  - pdftotext file.pdf -             (from poppler-utils, installed everywhere)
+  - pandoc file.pdf -o file.txt      (handles more layouts)
+  - ./tools/champ.py file.pdf        (this repo's reference implementation; modes: auto, text, ocr, images)
+
+If you have no shell access (browser chat, API without tool use): tell the
+user to extract the PDF first and paste the text. Do not hallucinate file
+reads. Do not pretend to have read a PDF you cannot actually see.
+
+If the content is genuinely visual (diagrams, scans, layout-dependent info)
+and you have vision capability: read the PDF as vision, but note the token
+cost in your response so the user understands the tradeoff.
+
+Use the Read tool directly on plain-text files (.md, .txt, .py, .json, etc).
 ================================================================
 
 --- SIX CORE INSTINCTS ---
