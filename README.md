@@ -247,11 +247,17 @@ If anything isn't working, **read [TROUBLESHOOTING.md](TROUBLESHOOTING.md)** fir
 
 ## License
 
-**STIX V2.0 is licensed under AGPL-3.0.**
+**STIX V2.0 is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).** The full license text is in [LICENSE](LICENSE).
 
-- ✅ **Free** for open-source projects, personal use, education, internal use, and contributions
-- 💼 **Commercial / proprietary use** — keep your product AGPL-compliant, OR contact the maintainer for a commercial license
-- See [LICENSE](LICENSE) for full terms
+**What AGPL-3.0 means in practice:**
+
+- ✅ **Free for everyone** — personal, internal, commercial, educational, research. AGPL-3.0 does NOT restrict commercial use.
+- 📋 **Copyleft obligation** — if you modify STIX and distribute your modified version (including running it as a network service accessible to third parties), you must make your modified source code available under the same AGPL-3.0 license.
+- 🔗 **Network-service clause (Section 13)** — the "Affero" part. If you host a service that uses STIX and exposes it to users over a network, you must offer those users the complete source code of your STIX-using service.
+
+### Commercial / Alternative Licensing
+
+If AGPL-3.0 copyleft obligations don't fit your commercial product (e.g., you want to embed STIX inside a closed-source SaaS without open-sourcing your product), **alternative commercial licensing is available.** Open a GitHub issue tagged `commercial-license` or reach out via the repository's issue tracker to discuss terms.
 
 ---
 
