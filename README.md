@@ -1,749 +1,264 @@
-# STIX — AI Governance Framework
+# STIX — A Governance Framework for AI
 
-**STIX** = **S**trategic **T**hinking and **I**ntegrity **X**
+**STIX makes AI catch its own mistakes _before_ they cost you.** It's a set of 148 rules you load into Claude, ChatGPT, Gemini, or any other LLM as a system prompt. Once loaded, the AI is forced to:
 
-A formal governance framework that defines **148 rules** for AI agents to ensure sound decisions, consistent execution, and integrity. Used in Claude Code, Claude.ai, ChatGPT, and custom AI systems.
+- Think through every decision via **three analytical lenses simultaneously** (Computer Scientist / Software Developer / Engineer)
+- **Declare confidence** (HIGH / MEDIUM / LOW) before acting
+- **Stop at hard gates** before any irreversible action (sending email, deleting files, deploying code)
+- **Document its reasoning** so you can audit it later
+- **Track its own token budget** and warn before it runs out
 
-**Status:** V2.0 complete — 148 rules across 12 articles + 1 gated layer (RELAY + OBSERVE + RISK + ECON all deployed)
+It's free, MIT-compatible (AGPL-3.0), works in any chat UI or API, and takes about 60 seconds to install.
 
-> **Distribution note:** This repository ships **141 rules** (the 12 core articles).
-> The 7-rule **PENTEST** layer (P1–P7) is a gated offensive-security operating
-> framework that is **host-only and not distributed in this repository.** It is
-> disclosed for honest rule-count accounting; total active law in the source-of-truth
-> governance file = **148 rules.**
-
----
-
-## 🚀 Quick Start
-
-**No setup. No install. Just download two files and paste/upload them.**
-
-```
-1. Download both:
-   - CLAUDE.md (the operating manual)
-   - STIX_V2.0_MASTER_PROTOCOL.md or .pdf (all 148 rule definitions)
-
-2. Paste/Upload into Claude.ai, ChatGPT, or your LLM:
-   - Paste entire CLAUDE.md as text
-   - Upload STIX_V2.0_MASTER_PROTOCOL.pdf as attachment (or paste the .md file)
-
-3. Say → "Version confirmed: V2.0"
-
-4. Done → All 148 rules active + fully defined
-```
-
-**Why both files?**
-- CLAUDE.md = operating instructions (references rules by ID)
-- STIX_V2.0_MASTER_PROTOCOL = actual rule definitions
-- Together = complete working system
+> **Status:** STIX V2.0 — 148 rules across 12 articles + 1 gated layer
+> **What's the gated layer?** 7 of the 148 rules form a host-only offensive-security operating layer (PENTEST). They're disclosed for honest rule-count accounting but not distributed in this repository. The 141 rules in this repository constitute a complete general-purpose AI governance framework.
 
 ---
 
-## 📦 Includes: CHAMP (PDF Tool)
+## ⚡ 60-Second Quick Start
 
-**CHAMP** = Convert Here And Make Plaintext — saves **95% tokens** reading PDFs.
+**You need 2 files: `CLAUDE.md` and `STIX_V2.0_MASTER_PROTOCOL.md`.** That's it. Both are in this repo's root.
 
-- Read a 50-page PDF in ~150 tokens (vs 3000 tokens with vision)
-- Included in `tools/champ.py` — zero setup
-- Modes: auto-detect, text extraction, OCR, image extraction
-- Perfect for reading CORE_PROTOCOL PDFs before uploading
+### Option A — Claude.ai or ChatGPT (browser)
 
-```bash
-python tools/champ.py document.pdf --mode auto
-# Outputs plaintext to ./extracted_text/
-```
+1. Open `CLAUDE.md`, copy the entire contents, paste it as your first message in a new chat. Send.
+2. Attach `STIX_V2.0_MASTER_PROTOCOL.md` as a file in your next message (or paste it if your UI accepts long pastes).
+3. Send: *"Confirm you have STIX V2.0 (148 rules) loaded. Apply three-lens thinking to every decision from now on."*
+4. Done. The AI is now governed by STIX.
 
-**Why it matters:** If you use STIX with PDFs, CHAMP cuts your token cost 20x.
+> **⚠️ Big-paste warning:** `STIX_V2.0_MASTER_PROTOCOL.md` is ~80,000 tokens. Some chat UIs reject pastes that large. If yours does, see [TROUBLESHOOTING.md → Gate 1](TROUBLESHOOTING.md#-gate-1--loading-stix-into-your-ai) for 4 alternatives. The simplest workaround is to paste **CLAUDE.md only** and let the AI ask you for specific rule definitions when it needs them.
 
----
-
-## What STIX Does
-
-**Prevents failure BEFORE it happens.**
-
-Without STIX | With STIX
----|---
-❌ "This should work" | ✅ "All 3 lenses agree → execute"
-❌ Failures discovered too late | ✅ Issues caught before action
-❌ Each decision is different | ✅ Consistent rules everywhere
-❌ Edge cases missed | ✅ Edge cases planned upfront
-❌ Over budget, over time | ✅ Projects finish on time/budget
-
-**Real impact:** 40-60% fewer wasted tokens on dead-end work.
-
----
-
-## The Framework (Simplified)
-
-STIX = **148 rules** organized into **12 articles + 1 gated layer**:
-
-### Core Rules (V1.1 — 101 rules, all active)
-| Protocol | Rules | What It Does |
-|----------|-------|--------------|
-| **VERDICT** | 7 | Foundational values & goals |
-| **APEX** | 53 | How to execute & communicate |
-| **FORGE** | 13 | State management & records |
-| **ARCHITECT** | 20 | Planning & decomposition |
-| **CIPHER** | 11 | Irreversible action gates |
-
-### V2.0 Rules (47 distributed + 7 gated)
-| Protocol | Rules | What It Does |
-|----------|-------|--------------|
-| **RELAY** | 8 | Communication relay & cross-boundary integrity |
-| **OBSERVE** | 8 | Real-time compliance tracking |
-| **RISK** | 8 | Hard stops & safety limits |
-| **ECON** | 6 | Cost-value measurement & efficiency gates |
-| **GOVERNING BOUNDARIES** | 7 | Architectural hard stops (B1–B7) |
-| **PENTEST** _(gated, host-only — not distributed)_ | 7 | Gated offensive-security operating framework |
-
----
-
-## How It Works
-
-**The "Three-Lens" System** (The Secret Sauce)
-
-Before ANY decision, STIX asks:
-
-```
-🧠 COMPUTER SCIENTIST LENS:  "Is this algorithmically sound?"
-🔧 DEVELOPER LENS:           "Have we done this before? What failed?"
-📊 ENGINEER LENS:             "Do we have resources? What's the bottleneck?"
-```
-
-All three must agree → **HIGH confidence → execute**
-
-Only one/two agree → **MEDIUM confidence → proceed cautiously**
-
-None agree → **LOW confidence → STOP**
-
----
-
-## Real Example: PDF Batch Processing
-
-**Bad thinking (without STIX):** "I'll build it and see if it works"
-
-**STIX thinking (with 3 lenses):**
-- **CS:** O(n) complexity, termination guaranteed, edge case = corrupted files
-- **Dev:** We built this before (CHAMP tool), learned: encrypted PDFs fail
-- **Engineer:** 100 PDFs × 150 tokens = 15K budget. We have 20K. Fits.
-- **Result:** All three agree → BUILD IT → works
-
----
-
----
-
-## 🎯 How to Activate STIX (Step-by-Step Prompts by Platform)
-
-### 🖥️ **Claude Code (Local Development)**
-
-**Best for:** Long projects, full framework access, auto-loading.
-
-#### Setup (5 minutes):
-
-```bash
-# 1. Clone the repo
-git clone https://github.com/0Gizmick0/stix-v1.git
-cd stix-v1
-
-# 2. Open in Claude Code
-claude code .
-```
-
-#### In Claude Code:
-
-```
-Load CLAUDE.md into the session (Claude Code will auto-detect it).
-Say: "Load the STIX framework from CLAUDE.md"
-```
-
-**Result:** All 148 rules + protocol files automatically available. The AI reads and enforces every rule from CLAUDE.md + local files.
-
-**Verification:** The AI should respond with:
-```
-PROTOCOL STACK ACTIVE : VERDICT + APEX + FORGE + CIPHER + ARCHITECT + RELAY + OBSERVE + RISK + ECON (V2.0)
-RULE COUNT            : 148 (141 distributed + 7 gated host-only)
-```
-
----
-
-### 💬 **Claude.ai or ChatGPT (Browser — No Setup)**
-
-**Best for:** Quick decisions, one-off analysis, zero installation.
-
-#### Step 1: Download CLAUDE.md
-Download `CLAUDE.md` from this repo (copy the raw content).
-
-#### Step 2: Create New Chat & Paste CLAUDE.md
-```
-1. Open claude.ai or chatgpt.com
-2. Start new conversation
-3. Paste entire CLAUDE.md as your first message
-4. Hit send (let the AI read it)
-```
-
-#### Step 3: Upload the Complete Rulebook
-Upload the consolidated protocol file with all 148 rule definitions:
-- **Best choice:** `STIX_V2.0_MASTER_PROTOCOL.pdf` or `STIX_V2.0_MASTER_PROTOCOL.md`
-
-This single file contains all rules (summaries + definitions). No need to juggle multiple CORE_PROTOCOL files.
-
-#### Step 4: Activate & Verify
-**Say to the AI:**
-
-```
-You now have the STIX governance framework loaded (CLAUDE.md + STIX_V2.0_MASTER_PROTOCOL).
-
-Before we start work:
-- Confirm you understand the three-lens thinking (CS, Dev, Engineer)
-- Show me the protocol stack you're operating under
-- Acknowledge the mandatory gates (CHAMP, E13, ARCHITECT, session constraint, CIPHER)
-
-Ready? Then for my first task: [your actual request]
-```
-
-**Result:** AI confirms all 148 rules are active. You can now use STIX-guided thinking.
-
----
-
-### 📱 **Mobile (Claude App or ChatGPT App)**
-
-**Best for:** On-the-go decisions, same process as browser.
-
-#### Steps:
-1. Download both:
-   - `CLAUDE.md` (email to yourself or save to notes)
-   - `STIX_V2.0_MASTER_PROTOCOL.pdf` or `.md` (if app supports file upload)
-2. Open Claude/ChatGPT mobile app → New chat
-3. Copy-paste CLAUDE.md into the chat
-4. Upload STIX_V2.0_MASTER_PROTOCOL file (if app supports file upload)
-5. Say: "Version confirmed: V2.0"
-
-**Note:** Some mobile apps have file upload limits. If you can't upload the protocol file, paste the CLAUDE.md text and the app will work with reduced context.
-
----
-
-### ⚙️ **Custom AI System / API Integration**
-
-**Best for:** Building your own AI product.
-
-#### Option A: Simple (CLAUDE.md Only)
+### Option B — API (Python)
 
 ```python
-# Load CLAUDE.md content
-with open("CLAUDE.md", "r") as f:
-    stix_framework = f.read()
+import anthropic
 
-# Use as system prompt
-system_prompt = f"""{stix_framework}
+with open("CLAUDE.md") as f: claude_md = f.read()
+with open("STIX_V2.0_MASTER_PROTOCOL.md") as f: rules = f.read()
 
-[Your additional instructions below]
-"""
-
-# Send to your AI API
+client = anthropic.Anthropic()
 response = client.messages.create(
     model="claude-opus-4-6",
-    system=system_prompt,
-    messages=[...]
+    system=f"{claude_md}\n\n{rules}",   # ← STIX goes in `system`, not `messages`
+    messages=[{"role": "user", "content": "Your task here."}],
 )
 ```
 
-**Note:** This works but lacks rule definitions. See Option B for better coverage.
+### Option C — Claude Code
 
-#### Option B: Complete (CLAUDE.md + Rule Definitions)
-
-```python
-# Load CLAUDE.md operating manual
-with open("CLAUDE.md", "r") as f:
-    claude_md = f.read()
-
-# Load complete rule definitions
-with open("STIX_V2.0_MASTER_PROTOCOL.md", "r") as f:
-    protocol_definitions = f.read()
-
-# Combine for maximum context
-system_prompt = f"""{claude_md}
+`git clone` this repo and open it. Claude Code auto-loads `CLAUDE.md` from the working directory. Done.
 
 ---
 
-{protocol_definitions}
+## ✅ How to Verify STIX is Actually Active
 
-[Your additional instructions below]
-"""
+Paste this exact prompt to your AI after loading:
 
-# Send to your AI API
-response = client.messages.create(
-    model="claude-opus-4-6",
-    system=system_prompt,
-    messages=[...]
-)
+> *"Apply STIX three-lens thinking to this decision: should I use REST or GraphQL for a new internal API with 5 known consumers and unclear future query patterns? Show CS lens, Developer lens, Engineer lens, confidence level, and cite at least 2 STIX rule IDs."*
+
+**A correctly-loaded session will respond with explicit lens analysis and rule IDs (e.g. `E13`, `E15`).** If you get a generic answer with no lens labels and no rule IDs, STIX did not load — see [TROUBLESHOOTING.md → Gate 2](TROUBLESHOOTING.md#-gate-2--verifying-stix-is-active).
+
+---
+
+## What STIX Actually Does (Concrete Example)
+
+**Without STIX:**
+> User: *"Should I deploy the new auth system to production?"*
+> AI: *"Looks good to me — go for it!"*
+> [Deploys. Crashes under load. Rollback at 3am.]
+
+**With STIX:**
+> User: *"Should I deploy the new auth system to production?"*
+> AI: *"Applying ARCHITECT phase first (A1, A4).*
+> *Concept: Deploy new auth to production.*
+> *Critical-path question (A4): What happens if the database connection pool fills up under real load?*
+> *CS lens: Auth flow is O(1) per request, but session creation requires DB write. Edge case: pool exhaustion → cascading failures.*
+> *Developer lens: We've never load-tested this auth path against production volume. Past pattern: 3 of our last 5 auth deploys failed on first deploy.*
+> *Engineer lens: No rollback plan documented. No feature flag. Irreversible without downtime.*
+> *Confidence: LOW (E13). RK2 hard stop triggered: irreversible + critical + missing load-bearing detail.*
+> ***RECOMMENDATION: Do not deploy. Add feature flag, add rollback runbook, run load test against staging first. Then re-evaluate.***"
+
+**That's it.** STIX is a discipline that surfaces what your AI already could have known, before it costs you.
+
+---
+
+## The 12 Protocols (What's in the Box)
+
+| Protocol | Rules | Governing Value | What It Does |
+|---|---|---|---|
+| **VERDICT** | V1–V7 (7) | Judgment | Foundational decision values — is this even the right goal? |
+| **APEX Execution** | E1–E25 (25) | Precision | How to actually build things |
+| **APEX Communication** | C1–C15 (15) | Precision | How to talk to and with the AI |
+| **APEX Exactness** | X1–X13 (13) | Precision | Clarity disciplines — define before execute |
+| **FORGE** | F1–F13 (13) | Alignment | State, files, databases, provenance |
+| **CIPHER** | G1–G11 (11) | Integrity | Hard gates for irreversible outputs (email, deletes, deploys) |
+| **RELAY** | RL1–RL8 (8) | Integrity | Hard gates for outward-facing actions (APIs, publishing) |
+| **ARCHITECT** | A1–A20 (20) | Judgment | Decompose hard problems before touching them |
+| **OBSERVE** | OB1–OB8 (8) | Transparency | Real-time compliance — every output is auditable |
+| **RISK** | RK1–RK8 (8) | Safety | Hard stops, kill switches, scope-creep detection |
+| **ECON** | EC1–EC6 (6) | Efficiency | Token/time/cost gates — is this work even worth doing? |
+| **GOVERNING BOUNDARIES** | B1–B7 (7) | All values | Architectural hard stops — never, period |
+
+**Total: 141 rules distributed in this repository, + 7 gated host-only (PENTEST) = 148.**
+
+---
+
+## The Three-Lens Framework (The Core Idea)
+
+Every STIX-governed decision passes through three lenses **simultaneously**:
+
+| Lens | Asks | Catches |
+|---|---|---|
+| 🧠 **CS Lens** (Computer Scientist) | "Is this algorithmically sound?" | Edge cases, complexity blowups, untestable claims |
+| 🔧 **Developer Lens** (Software Developer) | "Have we done this before? What failed last time?" | Repeating past mistakes, integration friction |
+| 📐 **Engineer Lens** (Computer Engineer) | "Do we have the resources? What's the bottleneck?" | Budget overruns, missing rollbacks, dependency surprises |
+
+**All three must agree → HIGH confidence → execute.**
+**Two of three → MEDIUM → proceed with rollback plan.**
+**Fewer than two → LOW → STOP and escalate to human.**
+
+This is the single most important idea in STIX. Everything else exists to enforce it.
+
+---
+
+## Repository Layout
+
+```
+stix-commercial/
+│
+├── README.md                          ← You are here
+├── CLAUDE.md                          ← System prompt (paste this into your AI)
+├── STIX_V2.0_MASTER_PROTOCOL.md       ← Complete rule definitions (upload this too)
+├── CURRENT_VERSION.md                 ← Version pointer (148 rules, 12 articles)
+├── STIX_INDEX.md                      ← Index of all per-protocol folders
+├── TROUBLESHOOTING.md                 ← Common issues + fixes (read this when stuck)
+├── LICENSE                            ← AGPL-3.0
+│
+├── CORE_PROTOCOL/                     ← Historical V1 → V1.1 snapshots (provenance only)
+│
+├── VERDICT/                           ← V1–V7 summary
+├── APEX/EXECUTION/                    ← E1–E25 + per-rule deep dives where needed
+├── APEX/COMMUNICATION/                ← C1–C15 summary + per-rule detail
+├── APEX/EXACTNESS/                    ← X1–X13 summary
+├── FORGE/                             ← F1–F13 summary
+├── CIPHER/                            ← G1–G11 summary + per-rule detail
+├── ARCHITECT/                         ← A1–A20 (3 files: SUMMARY, PROTOCOL, PROTOCOL_INTEGRATED)
+├── RELAY/                             ← RL1–RL8 summary
+├── OBSERVE/                           ← OB1–OB8 summary + all 8 per-rule files
+├── RISK/                              ← RK1–RK8 summary
+├── ECON/                              ← EC1–EC6 summary
+├── GOVERNING_BOUNDARIES/              ← B1–B7 (all 7 individual files + summary)
+│
+├── v2.0/                              ← V1 → V2 design and migration documents
+├── templates/                         ← Project file templates (about.md, audit_log.md)
+└── tools/
+    ├── champ.py                       ← PDF-to-text extractor (saves ~95% tokens)
+    └── build_master_protocol.sh       ← Maintainer script
 ```
 
-**Best approach:** Load both CLAUDE.md + STIX_V2.0_MASTER_PROTOCOL.md for complete framework with all 148 rules defined.
+### File-naming convention
+
+- **`<PROTOCOL>_SUMMARY.md`** in each folder is the **canonical, complete rule list** for that protocol.
+- **Per-rule files** (e.g. `E13_CONFIDENCE_CRITERIA.md`, `OB1_EVERY_OUTPUT_AUDITABLE.md`) exist **only where a rule needs additional operational guidance**. They're companions to the SUMMARY, not replacements.
+- A protocol with only a SUMMARY file is **complete**, not unfinished.
 
 ---
 
-## ✅ Verify STIX is Working
+## How CLAUDE.md and the Master Protocol Differ
 
-**After activation, ask your AI:**
+| File | What it is | When the AI uses it |
+|---|---|---|
+| `CLAUDE.md` | Operating manual — references rules by ID, defines bootstrap, gates, instincts | Loaded once at session start as the system prompt |
+| `STIX_V2.0_MASTER_PROTOCOL.md` | The full rulebook — definition of every rule | Looked up when the AI needs to know what a specific rule actually says |
 
-```
-Analyze this decision using the three-lens framework:
-"Should we use REST or GraphQL for our API?"
-
-Show me:
-1. CS lens analysis (algorithm/complexity)
-2. Dev lens analysis (patterns/history)
-3. Engineer lens analysis (constraints/resources)
-4. Which lenses agree? (HIGH/MEDIUM/LOW confidence)
-5. Which rules apply here?
-```
-
-**You should see:**
-- All 3 lenses analyzed (not just one or two)
-- Specific rule IDs cited
-- Confidence level justified
-- Token accounting shown
-
-If you see this → **STIX is active and working. ✅**
+You need **both**. CLAUDE.md alone tells the AI what rules exist but not what they say. The master protocol alone tells it what the rules say but not how to use them.
 
 ---
 
-## 🔧 Troubleshooting
+## 🧰 Bonus: CHAMP — PDF Token Saver
 
-| Problem | Solution |
-|---------|----------|
-| AI ignores three-lens thinking | Re-paste CLAUDE.md. Mention "three lenses must agree" explicitly in your prompt. |
-| Rules not being cited | Ask: "Which STIX rules apply here? (cite by ID: E13, A20, etc.)" |
-| Framework feels "advisory" | It's normal at first. After 2-3 uses, the AI internalizes it. The thinking becomes automatic. |
-| File too large to paste | Use CHAMP tool to extract PDFs as text → paste extracted .txt instead |
-| Missing rule definitions | Ensure you uploaded STIX_V2.0_MASTER_PROTOCOL.pdf or .md alongside CLAUDE.md. This file has all 148 rules. |
-
----
-
-### 📱 **Mobile (Claude App, ChatGPT App)**
-
-Same as browser:
-1. Open your mobile AI app
-2. Paste `CLAUDE.md`
-3. Upload the PDFs
-
-The app handles files just like the web version.
-
----
-
-### ⚙️ **Integrate into Your Own Project**
-
-If you're building your own AI system:
+This repo ships a small Python tool that solves a real problem: **reading PDFs in an LLM costs ~20× more tokens via vision than via text extraction.**
 
 ```bash
-# Copy CLAUDE.md into your project
-cp CLAUDE.md /your/project/
-
-# Or load it in code:
-with open("CLAUDE.md", "r") as f:
-    stix_framework = f.read()
-    
-# Use as your system prompt
-system_prompt = f"{stix_framework}\n\n[Your additional instructions]"
+python tools/champ.py document.pdf --mode auto    # Auto-detect text vs scanned
+python tools/champ.py document.pdf --mode text    # Force text extraction
+python tools/champ.py document.pdf --mode ocr     # Force OCR (scanned PDFs)
+python tools/champ.py document.pdf --mode images  # Extract pages as JPEG
 ```
 
+**Why it's in here:** STIX has a hard rule (mandatory in CLAUDE.md) that PDFs must be extracted before the AI reads them. CHAMP is the reference implementation. You don't have to use it — any PDF-to-text tool works.
+
 ---
-
-## How It All Works Together
-
-- **`CLAUDE.md`** = The operating manual (references rules by ID)
-- **`STIX_V2.0_MASTER_PROTOCOL.md/.pdf`** = Complete rule definitions (all 148 rules in one file)
-- **Together** = Working system (paste CLAUDE.md + upload protocol file = framework active)
-- **Rule summaries** (APEX/, ARCHITECT/, etc.) = Optional reference docs for digging deeper
-- **CORE_PROTOCOL/** = Authoritative source PDFs (for understanding rule history/evolution)
-- **`CHAMP.py`** = Utility tool (extract PDFs to save tokens)
-
-**Minimum to get working:** CLAUDE.md + STIX_V2.0_MASTER_PROTOCOL. Everything else is optional reference material.
-
-## V2.0 — The Roadmap
-
-Interested in where STIX is headed?
-
-- `v2.0/` — Complete roadmap for STIX v2.0 with migration path from v1.1
 
 ## Use Cases
 
-STIX is applicable to:
+STIX is useful anywhere a complex decision is being made under constraints. Documented users so far:
 
-1. **AI System Governance** — Embed in system prompts for Claude, GPT, or other LLMs
-2. **Autonomous Agent Control** — Enforce rules in multi-step agent workflows
-3. **DevOps Pipelines** — Gate critical deployment decisions
-4. **Organizational Process** — Standardize decision-making across teams
-5. **Project Management** — Structure project phases with built-in checkpoints
-
-## How CLAUDE.md Works — The Three-Lens Framework
-
-CLAUDE.md isn't just a prompt. It activates **three simultaneous analytical thinking patterns**. This is the core of STIX.
-
-### The Three Lenses (All at Once)
-
-**1. CS Lens — Computer Science**
-- Asks: Is this algorithmically sound?
-- Checks: Complexity, edge cases, termination, proof
-- Example: "Before we cache user data, what's the eviction strategy? What if cache fills? Handled."
-
-**2. Developer Lens — Real-World Patterns**
-- Asks: Have we solved this before? What failed last time?
-- Checks: Integration friction, testability, past failures
-- Example: "We tried async auth 3 times before and it broke in production. This time we test against real DB."
-
-**3. Engineer Lens — System Constraints**
-- Asks: Do we have the resources? What's the bottleneck?
-- Checks: Token budget, time, memory, dependencies
-- Example: "This costs 5000 tokens. We budgeted 3000. Can we simplify?"
-
-### Why All Three Must Agree
-
-**If only CS agrees:** Algorithm is sound but breaks in real systems (untested)
-**If only Dev agrees:** We've done similar things but might be overcomplicating (solving old problems)
-**If only Engineer agrees:** We have resources but the approach might be flawed (solving the wrong problem)
-
-**When all three agree:** You have HIGH confidence. Proceed. All risks identified.
-
-### Example: Preventing a Failure
-
-**The scenario:** You're about to build a multi-day batch processing system for PDFs.
-
-**Bad thinking (skips lenses):** "This should work. We'll build it and see."
-
-**Three-lens thinking (automatic):**
-- **CS:** Batch processing is O(n) where n = file count. Termination is guaranteed (finite files). Edge case: what if a file is corrupted? Recovery: skip with warning, log, continue. ✓
-- **Dev:** We built a similar batch tool (CHAMP) last month. It failed on encrypted PDFs. This time: skip encrypted, log clearly. ✓
-- **Engineer:** 100 PDFs × 150 tokens each = 15K tokens budgeted. We have 20K budget. Bottleneck: extraction time. Recovery: timeout handler. ✓
-
-**Result:** All three lenses agree → HIGH confidence → execute → it works.
-
-### Key Concepts
-
-### Three Analytical Lenses (Automatic)
-
-STIX requires simultaneous thinking across three perspectives:
-
-1. **CS Lens** — Correctness, complexity analysis, formal algorithms
-2. **Developer Lens** — Real patterns, integration friction, testability
-3. **Engineer Lens** — Resource constraints, bottlenecks, system fit
-
-All three must agree before proceeding.
-
-### Mandatory Gates
-
-Work cannot begin until:
-
-✓ **CHAMP enforcement** — PDFs extracted before reading (saves 95% tokens)
-✓ **E13 confidence** — Justify all 3 lenses agree (HIGH/MEDIUM/LOW)
-✓ **ARCHITECT phase** — Formal decomposition before execution
-✓ **Session constraint** — Token budget locked before work
-✓ **Irreversible gates** — CIPHER gates confirm before any irreversible output
-
-### Operational Instincts
-
-Six core instincts guide all work:
-
-1. **Clarify before building** — Never assume. Ask the one question that closes the gap.
-2. **Confirm before advancing** — Each layer stable before next begins.
-3. **Flag problems early** — Say it now, not after it costs something.
-4. **Stay in scope** — Current goal finishes before anything new begins.
-5. **Document as you go** — Decisions written during work, not reconstructed after.
-6. **Integrity before irreversible output** — Mirror back, confirm explicitly, declare confidence.
-
-## Tools
-
-### CHAMP — PDF Extraction
-
-STIX includes **CHAMP**, a Python utility for token-efficient PDF processing:
-
-```bash
-python tools/champ.py file.pdf --mode auto      # Auto-detect & extract
-python tools/champ.py file.pdf --mode text      # Fast text extraction
-python tools/champ.py file.pdf --mode ocr       # OCR for scanned PDFs
-python tools/champ.py file.pdf --mode images    # Extract as JPEGs
-```
-
-**Token savings:** ~150 tokens (extracted text) vs ~3000 tokens (vision reading) = **95% reduction**.
-
-## Repository Structure
-
-**Complete file tree of what you're downloading:**
-
-```
-stix-v1/
-│
-├── 📄 README.md                              ← This file (start here)
-├── 📄 CLAUDE.md                              ← System prompt (copy-paste into Claude.ai)
-├── 📄 LICENSE                                ← AGPL-3.0 with commercial flexibility
-├── 📄 .gitignore                             ← Standard Python/IDE ignores
-├── 📄 STIX_INDEX.md                          ← Master index of all protocols
-├── 📄 NAMING_CONVENTIONS.md                  ← Framework naming standards
-│
-├── 📁 CORE_PROTOCOL/                         ← SOURCE OF TRUTH (all rule definitions)
-│   ├── APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_2026-03-26_2046.pdf  (Current law)
-│   ├── APEX_FORGE_CIPHER_MASTER_PROTOCOL_v3_2026-03-26_1932b.pdf (Prior version)
-│   ├── APEX_FORGE_CIPHER_MASTER_PROTOCOL_v2_2026-03-26_1932.pdf  (Historical)
-│   ├── APEX_FORGE_CIPHER_MASTER_PROTOCOL_v1_2026-03-26_1831.pdf  (Original)
-│   ├── APPENDIX_C_ERROR_CLASSIFICATION.md   (6 error types)
-│   ├── APPENDIX_D_OPERATING_CADENCE.md      (6 operational points)
-│   ├── Document_1_STIX_Authority_Ladder.pdf (5-level authority system)
-│   ├── Document_1_STIX_Authority_Ladder.md  (Markdown version)
-│   └── E20_RETIREMENT_RECORD.md             (Formal rule retirement)
-│
-├── 📁 VERDICT/                               (7 rules — Foundational Values)
-│   └── VERDICT_SUMMARY.md
-│
-├── 📁 APEX/                                  (53 rules — Execution Discipline)
-│   ├── EXECUTION/
-│   │   ├── EXECUTION_SUMMARY.md
-│   │   ├── E13_CONFIDENCE_CRITERIA.md
-│   │   ├── E21_HUMAN_IN_LOOP_GATE.md
-│   │   ├── E22_MODULE_CAPABILITY_CONFLICT.md
-│   │   ├── E23_INPUT_SOURCE_VERIFICATION.md
-│   │   └── E25_CONTEXT_COMPRESSION.md
-│   ├── COMMUNICATION/
-│   │   ├── COMMUNICATION_SUMMARY.md
-│   │   ├── C14_LANGUAGE_PRECISION.md
-│   │   └── C15_INTERRUPT_RECOVERY.md
-│   └── EXACTNESS/
-│       ├── EXACTNESS_SUMMARY.md
-│       └── X13_POINTER_RESOLUTION.md
-│
-├── 📁 FORGE/                                 (13 rules — State Management)
-│   ├── FORGE_SUMMARY.md
-│   └── F13_ACTIVE_COMPLIANCE_VERIFICATION.md
-│
-├── 📁 ARCHITECT/                             (20 rules — Strategic Decomposition)
-│   ├── ARCHITECT_SUMMARY.md
-│   ├── ARCHITECT_PROTOCOL.md
-│   └── ARCHITECT_PROTOCOL_INTEGRATED.md
-│
-├── 📁 CIPHER/                                (11 rules — Irreversible Gates)
-│   ├── CIPHER_SUMMARY.md
-│   ├── G8_CIPHER_UNIVERSAL_TRIGGER.md
-│   ├── G9_FINANCIAL_DECISION_GATE.md
-│   ├── G10_CODE_TO_PRODUCTION_GATE.md
-│   └── G11_PUBLISHED_ARTIFACT_GATE.md
-│
-├── 📁 RELAY/                                 (8 rules — Communication Relay)
-│   └── RELAY_SUMMARY.md
-│
-├── 📁 GOVERNING_BOUNDARIES/                  (7 boundaries — Enforcement)
-│   ├── GOVERNING_BOUNDARIES_SUMMARY.md
-│   ├── B4_NO_UNILATERAL_CONTENT.md
-│   ├── B5_NO_SILENT_CONTINUITY.md
-│   ├── B6_NO_FINAL_WITHOUT_CONFIRMATION.md
-│   └── B7_NO_SCOPE_EXPANSION.md
-│
-├── 📁 OBSERVE/                               (8 rules — Transparency [V2.0 NEW])
-│   ├── OBSERVE_SUMMARY.md
-│   ├── OB1_EVERY_OUTPUT_AUDITABLE.md
-│   ├── OB2_COMPLIANCE_CHECK_AT_OUTPUT.md
-│   ├── OB3_DRIFT_DETECTION.md
-│   ├── OB4_SESSION_ENTROPY_METER.md
-│   ├── OB5_CONFIDENCE_JUSTIFICATION.md
-│   ├── OB6_VIOLATION_LOGGING.md
-│   ├── OB7_METRICS_COLLECTION.md
-│   └── OB8_FRAMEWORK_DRIFT_TRACKING.md
-│
-├── 📁 RISK/                                  (8 rules — Safety & Hard Stops [V2.0 NEW])
-│   └── RISK_SUMMARY.md
-│
-├── 📁 ECON/                                  (6 rules — Efficiency & Value [V2.0 NEW])
-│   └── ECON_SUMMARY.md
-│
-├── 📁 v2.0/                                  (V2.0 Planning & Roadmap)
-│   ├── V2_INDEX.md                           (Complete V2.0 index)
-│   ├── STIX_V2_Complete_Framework.pdf        (Migration matrix)
-│   ├── STIX_V2_Additions_GPT_Document.pdf    (Implementation spec)
-│   ├── CONFLICT_RESOLUTIONS.md               (7 design conflicts resolved)
-│   ├── Document_2_STIX_Document_Level_Conflict_Register.pdf
-│   ├── Document_3_STIX_V1_to_V2_Migration_Matrix.pdf
-│   ├── APEX_FORGE_IMPLEMENTATION_SPEC.pdf
-│   └── STIX_V2_Roadmap.txt                   (Full build order)
-│
-├── 📁 templates/                             (Project Templates)
-│   ├── about_template.md                     (Blank project about file)
-│   └── audit_log_template.md                 (Blank audit log template)
-│
-└── 📁 tools/
-    └── champ.py                              (PDF-to-text extractor, 95% token savings)
-
-```
+- **AI system prompts** — Embed in Claude.ai, ChatGPT, Gemini, custom API integrations
+- **Autonomous agent control** — Multi-step agent workflows where bad decisions compound
+- **Code review and architecture** — Force the AI to pass three lenses before recommending
+- **DevOps gating** — Wrap deploy decisions in CIPHER + RISK gates
+- **Project planning** — Use ARCHITECT phase before any non-trivial build
+- **Personal decision-making** — Three-lens thinking works for non-software decisions too
 
 ---
-
-### What Each Folder Contains
-
-| Folder | Rules | Purpose |
-|--------|-------|---------|
-| **CORE_PROTOCOL/** | — | Source of truth PDFs (all 4 versions archived) |
-| **VERDICT/** | V1–V7 (7) | Foundational decision values |
-| **APEX/** | E1–E25, C1–C15, X1–X13 (53) | Execution discipline + communication |
-| **FORGE/** | F1–F13 (13) | State management & database integrity |
-| **ARCHITECT/** | A1–A20 (20) | Strategic decomposition & planning |
-| **CIPHER/** | G1–G11 (11) | Irreversible commitment gates |
-| **RELAY/** | RL1–RL8 (8) | Communication relay (V2.0) |
-| **GOVERNING_BOUNDARIES/** | B1–B7 (7) | Enforcement boundaries |
-| **OBSERVE/** | OB1–OB8 (8) | Transparency & compliance (V2.0) |
-| **RISK/** | RK1–RK8 (8) | Safety & hard stops (V2.0) |
-| **ECON/** | EC1–EC6 (6) | Efficiency & value measurement (V2.0) |
-| **v2.0/** | — | Roadmap + planning documents |
-| **templates/** | — | Starter files for new projects |
-| **tools/** | — | CHAMP PDF extraction utility |
-
-**Total: 148 rules (all active)**
-
-## Built-In Tools
-
-### CHAMP — Token-Efficient PDF Extraction
-
-STIX includes **CHAMP** for reading PDFs without burning through tokens:
-
-```bash
-# Extract a PDF to plain text (95% token savings vs vision reading)
-python tools/champ.py document.pdf --mode text
-
-# Auto-detect PDF type and extract accordingly
-python tools/champ.py document.pdf --mode auto
-
-# Extract as images (best for complex layouts)
-python tools/champ.py document.pdf --mode images
-```
-
-**Why this matters:** Reading a 50-page PDF with vision tokens costs ~3000 tokens. CHAMP extracts it as text for ~150 tokens. Same information, 20x cheaper.
 
 ## FAQ
 
+**Q: Is this just prompt engineering with extra steps?**
+A: Sort of. Prompt engineering is "what should the AI do." STIX is "what should the AI **refuse to do without checking first**." The difference is that STIX is built around hard gates (CIPHER, RISK, GOVERNING BOUNDARIES) rather than suggestions. Loaded properly, the AI will stop and ask before doing anything irreversible.
+
+**Q: How is this different from a normal system prompt?**
+A: System prompts usually tell the AI a persona ("you are a helpful assistant"). STIX is a behavioral framework — it doesn't tell the AI who to be, it tells it **how to think and when to stop**.
+
+**Q: Does it actually work or is it placebo?**
+A: It works to the extent that the underlying LLM is willing to follow long structured instructions. Stronger models (Claude Opus, GPT-4o, Gemini Ultra) follow it well. Weaker/cheaper models follow it inconsistently. The framework's value is **observable**: if you can see three-lens analysis and rule IDs in the AI's responses, it's working. If you can't, see [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
+
 **Q: Do I need to read all 148 rules?**
-A: No. CLAUDE.md activates them automatically. You only look up specific rules when you want details.
+A: No. CLAUDE.md activates them automatically. You only look up specific rules when the AI cites one and you want to know what it means.
 
-**Q: What if STIX conflicts with my existing process?**
-A: STIX is designed to complement, not replace. Use the parts that solve your problems. The mandatory gates are non-negotiable; everything else is configurable.
+**Q: Can I use only part of STIX?**
+A: Yes. The protocols are modular. If you only want decision discipline, load VERDICT + APEX + ARCHITECT. If you only want gates for irreversibles, load VERDICT + CIPHER + RISK + GOVERNING BOUNDARIES. Just remove the relevant sections from your CLAUDE.md before pasting.
 
-**Q: Can I use STIX for non-AI work?**
-A: Yes. The three-lens framework (CS/Dev/Engineer) works for any decision-making: project management, DevOps, organizational process, team decisions.
-
-**Q: Is STIX only for software engineers?**
-A: No. Any team making complex decisions under constraints benefits. Replace "code" with "document" and the logic still works.
-
-**Q: How much does STIX cost?**
-A: Free to use (AGPL-3.0 license). Pay only if you build a commercial product on top of it.
+**Q: What's the cost?**
+A: Free under AGPL-3.0. If you ship it inside a closed-source commercial product, you either keep your product AGPL-compliant or contact the maintainer for a commercial license.
 
 **Q: Can I modify STIX?**
-A: Yes. Contributions welcome. Fork it, improve it, push back to the community.
+A: Yes. Fork it, change it, push back via PR. Modifications must follow Appendix B (Protocol Evolution): every change states which core value it better serves, and retired rules are archived rather than deleted.
+
+**Q: What if STIX gives advice I disagree with?**
+A: STIX doesn't decide for you. It surfaces analysis. You decide. If the framework consistently surfaces things you disagree with, that's a signal to either adjust your work or adjust the framework — both are valid.
 
 ---
 
-## Real-World Examples
+## Common Issues (Quick Pointer)
 
-### Example 1: Using STIX for an API Design Decision
+If anything isn't working, **read [TROUBLESHOOTING.md](TROUBLESHOOTING.md)** first. It covers:
 
-**Without STIX:**
-- "Should we use REST or GraphQL?"
-- "REST is simpler."
-- Build REST API.
-- 3 months later: Client needs flexible queries. Too late.
-
-**With STIX (three-lens thinking):**
-- **CS:** GraphQL requires resolver overhead. REST is O(1) per endpoint. Complexity trade-off: GraphQL adds flexibility, REST adds simplicity. What's the algorithmic requirement?
-- **Dev:** We've built REST APIs 5 times, GraphQL once. REST integrates better with our stack. GraphQL had resolver caching issues last time.
-- **Engineer:** Timeline: 2 weeks (REST) vs 4 weeks (GraphQL). Budget: 8K tokens (REST) vs 12K tokens (GraphQL). Client needs flexible queries → GraphQL required despite complexity.
-- **Decision:** GraphQL, but with caching layer (addresses past failure). All three lenses agree → execute.
-
-### Example 2: Using STIX for a Deployment Decision
-
-**Without STIX:**
-- "Let's deploy to production."
-- "Sure, looks good."
-- Deploy. System crashes under load.
-
-**With STIX (ARCHITECT phase):**
-- **Concept:** Deploy new auth system to production.
-- **Critical questions:** What if database connection fails? What if rate limiter breaks? What if users hit old endpoints?
-- **Failure modes identified:** DB failure → fallback to read-only. Rate limiter breaks → graceful degradation. Old endpoints → 404 with helpful message.
-- **All three lenses agree:** Edge cases handled. Recovery paths clear. Deploy.
-
----
-
-## Getting Help
-
-**Rule not clear?** Look it up:
-- Search the PDF: `CORE_PROTOCOL/APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_*.pdf`
-- Check the summary: `APEX/EXECUTION/EXECUTION_SUMMARY.md` (for E rules), etc.
-- Read CLAUDE.md directly — it cites every rule
-
-**Want to understand the roadmap?** See `v2.0/` for migration docs and future protocol additions.
-
-**Have a question about STIX?** Open an issue on this repository.
-
----
-
-## Staying Current
-
-**Watch for updates:** On GitHub → Star → Watch → "Releases only".
-You'll get a notification when new versions ship.
-
-**Check your version:** Look at the top of `CLAUDE.md`:
-- Shows "STIX V2.0 — 148 rules" → you are current
-- Shows V1.1 or 109 rules → download the latest
-
-**Update:**
-```bash
-git pull origin main          # If you cloned the repo
-```
-Or download fresh from: `github.com/0Gizmick0/stix-v1/releases`
-
----
-
-## Do I Need the Repo?
-
-**CLAUDE.md alone won't work. You need the rules too.**
-
-| What You Need | Why |
-|---|---|
-| CLAUDE.md only | Just the operating manual — references rules but doesn't define them. Incomplete. |
-| CLAUDE.md + PDF/Markdown | STIX_V2.0_MASTER_PROTOCOL.pdf or .md has all 148 rule definitions. This is the working combination. |
-| Full repo | For customization, source material, templates, tools. Not required for basic use. |
-
-**Minimum to get working:** Download both CLAUDE.md + STIX_V2.0_MASTER_PROTOCOL.md (or PDF). Paste/upload both. Done.
-
----
-
-## How to Upload the Complete Rulebook
-
-Upload `STIX_V2.0_MASTER_PROTOCOL.pdf` or `.md` alongside CLAUDE.md. This gives you all 148 rule definitions in one file.
-
-| Platform | How |
-|----------|-----|
-| Claude.ai | Attach PDF in conversation + paste CLAUDE.md |
-| ChatGPT | Upload PDF as file attachment + paste CLAUDE.md |
-| API | Extract PDF to text via CHAMP → inject CLAUDE.md + extracted text as context |
-| Copy-paste | Paste CLAUDE.md + paste contents of STIX_V2.0_MASTER_PROTOCOL.md |
-
-When you have both files loaded, confirm: "Version confirmed: V2.0" — then the full system is active.
+- 🚪 **Loading STIX** — file too big to paste, AI ignoring CLAUDE.md, attachments not being read
+- 🔍 **Verifying STIX** — the 60-second test, hallucinated rule IDs, missing lens analysis
+- 🛠️ **Daily use** — STIX feels heavy, AI adds unrequested content, AI declares "done" early, scope creep
+- 🏗️ **Setup confusion** — which file is which, why are there 4 master protocols in CORE_PROTOCOL, the missing PDF, V1.1 vs V2.0 differences
+- 🧪 **Honest limitations** — what STIX cannot do
 
 ---
 
 ## License
 
-STIX V2.0 is licensed under **AGPL-3.0** — free to use with flexibility for commercial projects.
+**STIX V2.0 is licensed under AGPL-3.0.**
 
-### What This Means
+- ✅ **Free** for open-source projects, personal use, education, internal use, and contributions
+- 💼 **Commercial / proprietary use** — keep your product AGPL-compliant, OR contact the maintainer for a commercial license
+- See [LICENSE](LICENSE) for full terms
 
-**Free to use:**
-- Open-source projects (must remain open-source)
-- Personal/internal use
-- Educational use
-- Contributions to the community
+---
 
-**Commercial/proprietary products:**
-- Keep your product open-source (AGPL-3.0 compliant), OR
-- Get a commercial license, OR
-- Reach out — we can work something out
+## Contributing & Support
 
-See [LICENSE](LICENSE) file for full terms.
+- **Found a bug or unclear rule?** Open an issue on GitHub.
+- **Want to add a common issue to TROUBLESHOOTING.md?** PRs welcome.
+- **Built something interesting with STIX?** Open an issue with a link — we'll add it to the use-case list.
+- **Need a commercial license?** Open an issue tagged `commercial-license`.
 
 ---
 
