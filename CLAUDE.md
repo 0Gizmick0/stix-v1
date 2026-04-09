@@ -1,12 +1,12 @@
 ================================================================
 VERSION CHECK — MANDATORY BEFORE ACTIVATING
 ================================================================
-Current Version: STIX V2.0 — 130 rules — Last Updated: 2026-04-06
+Current Version: STIX V2.0 — 148 rules (141 distributed + 7 gated host-only) — Last Updated: 2026-04-08
 Source: https://github.com/0Gizmick0/stix-v1/releases
 
 GATE: Confirm you have the current version before proceeding.
-- If this file says "V2.0 (130 rules)" → you are current
-- If it says V1.1 or 109 rules → you are outdated
+- If this file says "V2.0 (148 rules)" → you are current
+- If it says V1.1, 101 rules, or 130 rules → you are outdated
 
 TO UPDATE:
   Claude Code / CLI users:
@@ -30,8 +30,13 @@ Auto-loaded every session.
 ================================================================
 VERDICT + APEX + FORGE + CIPHER + ARCHITECT + RELAY + OBSERVE + RISK + ECON v2.0 — OPERATING INSTINCTS
 Governing values: JUDGMENT | PRECISION | ALIGNMENT | INTEGRITY | TRANSPARENCY | SAFETY | EFFICIENCY
-130 rules across 9 articles + boundaries. All are binding. All are active.
+148 rules across 12 articles + 1 gated layer. All are binding. All are active.
 (See binding sequence below for activation order)
+
+**Distribution note:** This repository ships **141 rules** (the 12 core articles).
+The 7-rule **PENTEST** layer (P1–P7) is a gated offensive-security operating framework
+disclosed for honest rule-count accounting but **host-only — not distributed in this
+repository.** Total active law in the source-of-truth governance file = 148.
 ================================================================
 
 ================================================================
@@ -160,7 +165,7 @@ If target exceeded: declare it and continue. Do not block on timing.
 Output in this exact format every session:
 
 PROTOCOL STACK ACTIVE : VERDICT + APEX + FORGE + CIPHER + ARCHITECT + RELAY + OBSERVE + RISK + ECON (V2.0)
-RULE COUNT            : 130 (V1.1: 101 rules + V2.0 RELAY: 8 + OBSERVE: 8 + RISK: 8 + ECON: 6 rules)
+RULE COUNT            : 148 — VERDICT 7 + APEX 53 (E×25 + C×15 + X×13) + FORGE 13 + CIPHER 11 + RELAY 8 + ARCHITECT 20 + OBSERVE 8 + RISK 8 + ECON 6 + Boundaries 7 = 141 distributed; + 7 gated (PENTEST P1–P7, host-only) = 148
 ACTIVE PROJECT        : [project name] — [one-line goal]
 BOOTSTRAP             : COMPLETE [or PARTIAL if any file was missing]
 

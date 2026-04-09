@@ -3,8 +3,8 @@ name: STIX Master Index
 location: Framework repository/
 source_protocol: STIX v2.0 — Structured Tiers for Integrated Execution
 indexed: 2026-03-27
-last_updated: 2026-04-05
-total_framework_rules: 130 (101 V1.1 + 8 RELAY + 8 OBSERVE + 8 RISK + 6 ECON - ratified & active)
+last_updated: 2026-04-08
+total_framework_rules: 148 (141 distributed + 7 gated host-only)
 provenance: F11 — Every record carries source, timestamp, and version of the logic that produced it.
 ---
 
@@ -12,8 +12,8 @@ provenance: F11 — Every record carries source, timestamp, and version of the l
 **Full Name:** Structured Tiers for Integrated Execution
 **Location:** Framework repository/
 **Indexed:** 2026-03-27
-**Governing Framework:** STIX v2.0 | 130 rules | VERDICT + APEX + FORGE + CIPHER + ARCHITECT + RELAY + OBSERVE + RISK + ECON
-**Last Updated:** 2026-04-05
+**Governing Framework:** STIX v2.0 | 148 rules across 12 articles + 1 gated layer | VERDICT + APEX + FORGE + CIPHER + ARCHITECT + RELAY + OBSERVE + RISK + ECON + GOVERNING BOUNDARIES (+ PENTEST gated, host-only)
+**Last Updated:** 2026-04-08
 
 ---
 
@@ -36,8 +36,9 @@ These folders contain detailed summaries of every rule in the governing protocol
 | `ECON/` | Article IX | EC1–EC6 (6 rules) | EFFICIENCY | `ECON_SUMMARY.md` |
 | `GOVERNING_BOUNDARIES/` | Appendix A | B1–B7 (7 boundaries) | ALL VALUES | `GOVERNING_BOUNDARIES_SUMMARY.md` |
 
-**Total: 130 rules active (V2.0 — all protocols ratified & active)**
-**Active Protocols (V2.0):** VERDICT (7) + APEX (51) + FORGE (13) + CIPHER (11) + ARCHITECT (20) + RELAY (8) + OBSERVE (8) + RISK (8) + ECON (6) + Boundaries (7)
+**Total: 148 rules (141 distributed in this repository + 7 gated host-only)**
+**Active Protocols (V2.0):** VERDICT (7) + APEX (53: E×25 + C×15 + X×13) + FORGE (13) + CIPHER (11) + ARCHITECT (20) + RELAY (8) + OBSERVE (8) + RISK (8) + ECON (6) + Boundaries (7) = 141 distributed
+**PENTEST (gated, host-only):** P1–P7 — 7-rule gated offensive-security operating framework. Disclosed for honest rule-count accounting. Content, handbooks, and engagement lockfile templates are NOT distributed in this repository.
 **Deferred (V2.1):** RELAY sub-protocols (PUBLISH, API_OUT, SOCIAL) — structure ready, sub-rules pending
 **Appendices: Appendix A (B1–B7), Appendix B (Protocol Evolution), Appendix C (Error Classification), Appendix D (Operating Cadence)**
 

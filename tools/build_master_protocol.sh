@@ -4,8 +4,8 @@ OUT="STIX_V2.0_MASTER_PROTOCOL.md"
 
 cat > "$OUT" << 'HEADER'
 # STIX — Structured Tiers for Integrated Execution
-## V2.0 Master Protocol | 130 Rules | Complete Rulebook
-**Version:** 2.0 | **Updated:** 2026-04-06
+## V2.0 Master Protocol | 148 Rules | Complete Rulebook
+**Version:** 2.0 | **Updated:** 2026-04-08
 **Governing Values:** JUDGMENT | PRECISION | ALIGNMENT | INTEGRITY | TRANSPARENCY | SAFETY | EFFICIENCY
 
 > Upload alongside CLAUDE.md to any AI system for full framework activation.

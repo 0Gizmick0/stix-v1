@@ -2,9 +2,15 @@
 
 **STIX** = **S**trategic **T**hinking and **I**ntegrity **X**
 
-A formal governance framework that defines **130 rules** for AI agents to ensure sound decisions, consistent execution, and integrity. Used in Claude Code, Claude.ai, ChatGPT, and custom AI systems.
+A formal governance framework that defines **148 rules** for AI agents to ensure sound decisions, consistent execution, and integrity. Used in Claude Code, Claude.ai, ChatGPT, and custom AI systems.
 
-**Status:** V2.0 complete — 130 rules active (RELAY + OBSERVE + RISK + ECON all deployed)
+**Status:** V2.0 complete — 148 rules across 12 articles + 1 gated layer (RELAY + OBSERVE + RISK + ECON all deployed)
+
+> **Distribution note:** This repository ships **141 rules** (the 12 core articles).
+> The 7-rule **PENTEST** layer (P1–P7) is a gated offensive-security operating
+> framework that is **host-only and not distributed in this repository.** It is
+> disclosed for honest rule-count accounting; total active law in the source-of-truth
+> governance file = **148 rules.**
 
 ---
 
@@ -15,7 +21,7 @@ A formal governance framework that defines **130 rules** for AI agents to ensure
 ```
 1. Download both:
    - CLAUDE.md (the operating manual)
-   - STIX_V2.0_MASTER_PROTOCOL.md or .pdf (all 130 rule definitions)
+   - STIX_V2.0_MASTER_PROTOCOL.md or .pdf (all 148 rule definitions)
 
 2. Paste/Upload into Claude.ai, ChatGPT, or your LLM:
    - Paste entire CLAUDE.md as text
@@ -23,7 +29,7 @@ A formal governance framework that defines **130 rules** for AI agents to ensure
 
 3. Say → "Version confirmed: V2.0"
 
-4. Done → All 130 rules active + fully defined
+4. Done → All 148 rules active + fully defined
 ```
 
 **Why both files?**
@@ -69,7 +75,7 @@ Without STIX | With STIX
 
 ## The Framework (Simplified)
 
-STIX = **130 rules** organized into **9 protocols**:
+STIX = **148 rules** organized into **12 articles + 1 gated layer**:
 
 ### Core Rules (V1.1 — 101 rules, all active)
 | Protocol | Rules | What It Does |
@@ -80,13 +86,15 @@ STIX = **130 rules** organized into **9 protocols**:
 | **ARCHITECT** | 20 | Planning & decomposition |
 | **CIPHER** | 11 | Irreversible action gates |
 
-### V2.0 Rules (29 rules — now active)
+### V2.0 Rules (47 distributed + 7 gated)
 | Protocol | Rules | What It Does |
 |----------|-------|--------------|
 | **RELAY** | 8 | Communication relay & cross-boundary integrity |
 | **OBSERVE** | 8 | Real-time compliance tracking |
 | **RISK** | 8 | Hard stops & safety limits |
 | **ECON** | 6 | Cost-value measurement & efficiency gates |
+| **GOVERNING BOUNDARIES** | 7 | Architectural hard stops (B1–B7) |
+| **PENTEST** _(gated, host-only — not distributed)_ | 7 | Gated offensive-security operating framework |
 
 ---
 
@@ -148,12 +156,12 @@ Load CLAUDE.md into the session (Claude Code will auto-detect it).
 Say: "Load the STIX framework from CLAUDE.md"
 ```
 
-**Result:** All 130 rules + protocol files automatically available. The AI reads and enforces every rule from CLAUDE.md + local files.
+**Result:** All 148 rules + protocol files automatically available. The AI reads and enforces every rule from CLAUDE.md + local files.
 
 **Verification:** The AI should respond with:
 ```
 PROTOCOL STACK ACTIVE : VERDICT + APEX + FORGE + CIPHER + ARCHITECT + RELAY + OBSERVE + RISK + ECON (V2.0)
-RULE COUNT            : 130
+RULE COUNT            : 148 (141 distributed + 7 gated host-only)
 ```
 
 ---
@@ -174,7 +182,7 @@ Download `CLAUDE.md` from this repo (copy the raw content).
 ```
 
 #### Step 3: Upload the Complete Rulebook
-Upload the consolidated protocol file with all 130 rule definitions:
+Upload the consolidated protocol file with all 148 rule definitions:
 - **Best choice:** `STIX_V2.0_MASTER_PROTOCOL.pdf` or `STIX_V2.0_MASTER_PROTOCOL.md`
 
 This single file contains all rules (summaries + definitions). No need to juggle multiple CORE_PROTOCOL files.
@@ -193,7 +201,7 @@ Before we start work:
 Ready? Then for my first task: [your actual request]
 ```
 
-**Result:** AI confirms all 130 rules are active. You can now use STIX-guided thinking.
+**Result:** AI confirms all 148 rules are active. You can now use STIX-guided thinking.
 
 ---
 
@@ -270,7 +278,7 @@ response = client.messages.create(
 )
 ```
 
-**Best approach:** Load both CLAUDE.md + STIX_V2.0_MASTER_PROTOCOL.md for complete framework with all 130 rules defined.
+**Best approach:** Load both CLAUDE.md + STIX_V2.0_MASTER_PROTOCOL.md for complete framework with all 148 rules defined.
 
 ---
 
@@ -308,7 +316,7 @@ If you see this → **STIX is active and working. ✅**
 | Rules not being cited | Ask: "Which STIX rules apply here? (cite by ID: E13, A20, etc.)" |
 | Framework feels "advisory" | It's normal at first. After 2-3 uses, the AI internalizes it. The thinking becomes automatic. |
 | File too large to paste | Use CHAMP tool to extract PDFs as text → paste extracted .txt instead |
-| Missing rule definitions | Ensure you uploaded STIX_V2.0_MASTER_PROTOCOL.pdf or .md alongside CLAUDE.md. This file has all 130 rules. |
+| Missing rule definitions | Ensure you uploaded STIX_V2.0_MASTER_PROTOCOL.pdf or .md alongside CLAUDE.md. This file has all 148 rules. |
 
 ---
 
@@ -344,7 +352,7 @@ system_prompt = f"{stix_framework}\n\n[Your additional instructions]"
 ## How It All Works Together
 
 - **`CLAUDE.md`** = The operating manual (references rules by ID)
-- **`STIX_V2.0_MASTER_PROTOCOL.md/.pdf`** = Complete rule definitions (all 130 rules in one file)
+- **`STIX_V2.0_MASTER_PROTOCOL.md/.pdf`** = Complete rule definitions (all 148 rules in one file)
 - **Together** = Working system (paste CLAUDE.md + upload protocol file = framework active)
 - **Rule summaries** (APEX/, ARCHITECT/, etc.) = Optional reference docs for digging deeper
 - **CORE_PROTOCOL/** = Authoritative source PDFs (for understanding rule history/evolution)
@@ -585,7 +593,7 @@ stix-v1/
 | **templates/** | — | Starter files for new projects |
 | **tools/** | — | CHAMP PDF extraction utility |
 
-**Total: 130 rules (all active)**
+**Total: 148 rules (all active)**
 
 ## Built-In Tools
 
@@ -608,7 +616,7 @@ python tools/champ.py document.pdf --mode images
 
 ## FAQ
 
-**Q: Do I need to read all 130 rules?**
+**Q: Do I need to read all 148 rules?**
 A: No. CLAUDE.md activates them automatically. You only look up specific rules when you want details.
 
 **Q: What if STIX conflicts with my existing process?**
@@ -678,7 +686,7 @@ A: Yes. Contributions welcome. Fork it, improve it, push back to the community.
 You'll get a notification when new versions ship.
 
 **Check your version:** Look at the top of `CLAUDE.md`:
-- Shows "STIX V2.0 — 130 rules" → you are current
+- Shows "STIX V2.0 — 148 rules" → you are current
 - Shows V1.1 or 109 rules → download the latest
 
 **Update:**
@@ -696,7 +704,7 @@ Or download fresh from: `github.com/0Gizmick0/stix-v1/releases`
 | What You Need | Why |
 |---|---|
 | CLAUDE.md only | Just the operating manual — references rules but doesn't define them. Incomplete. |
-| CLAUDE.md + PDF/Markdown | STIX_V2.0_MASTER_PROTOCOL.pdf or .md has all 130 rule definitions. This is the working combination. |
+| CLAUDE.md + PDF/Markdown | STIX_V2.0_MASTER_PROTOCOL.pdf or .md has all 148 rule definitions. This is the working combination. |
 | Full repo | For customization, source material, templates, tools. Not required for basic use. |
 
 **Minimum to get working:** Download both CLAUDE.md + STIX_V2.0_MASTER_PROTOCOL.md (or PDF). Paste/upload both. Done.
@@ -705,7 +713,7 @@ Or download fresh from: `github.com/0Gizmick0/stix-v1/releases`
 
 ## How to Upload the Complete Rulebook
 
-Upload `STIX_V2.0_MASTER_PROTOCOL.pdf` or `.md` alongside CLAUDE.md. This gives you all 130 rule definitions in one file.
+Upload `STIX_V2.0_MASTER_PROTOCOL.pdf` or `.md` alongside CLAUDE.md. This gives you all 148 rule definitions in one file.
 
 | Platform | How |
 |----------|-----|
