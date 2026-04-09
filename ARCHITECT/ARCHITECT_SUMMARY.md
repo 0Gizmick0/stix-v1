@@ -8,6 +8,11 @@ source: CS Bachelor + Software Developer + Computer Engineer perspectives integr
 
 # ARTICLE VI — ARCHITECT (Summary)
 
+> **Which ARCHITECT file should I read?**
+> - **`ARCHITECT_SUMMARY.md`** (this file, ~36 lines) — quick reference table of all 20 rules. Start here.
+> - **`ARCHITECT_PROTOCOL.md`** (~410 lines) — canonical rule definitions + worked example. Read when applying ARCHITECT to a project.
+> - **`ARCHITECT_PROTOCOL_INTEGRATED.md`** (~1000 lines) — same rules with CS / Developer / Engineer perspective annotations on every rule + a step-by-step decomposition template. Read when teaching ARCHITECT or doing deep work.
+
 Strategic problem decomposition before execution. Sits above APEX. Prevents 40-60% of wasted tokens by forcing precision thinking upfront.
 
 | Rule | Name | Perspective | Gate |

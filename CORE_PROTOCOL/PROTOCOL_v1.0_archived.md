@@ -1,8 +1,15 @@
-# APEX/FORGE GOVERNANCE PROTOCOL
+# APEX/FORGE GOVERNANCE PROTOCOL — V1.0 (ARCHIVED)
+
+> **This is a historical snapshot.** STIX V1.0 was the first version of this
+> framework (March 25, 2026). The current law is **STIX V2.0 (148 rules)** —
+> see `../STIX_V2.0_MASTER_PROTOCOL.md` and `../CLAUDE.md`. This file is kept
+> for provenance under F11 (Preserve Provenance Always). New users should
+> ignore it.
+
 Version: 1.0
 Established: March 25, 2026
 Authors: ██████████ + Claude (Anthropic)
-Stored: Framework repository/PROTOCOL.md
+Stored: CORE_PROTOCOL/PROTOCOL_v1.0_archived.md
 
 APEX  — AI Precision Execution Protocol
 FORGE — Framework for Organized Reconnaissance, Governance, and Execution

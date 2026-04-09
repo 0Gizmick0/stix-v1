@@ -7,6 +7,7 @@ rule_count: 20
 source_protocol: User instruction 2026-03-29
 created: 2026-03-29
 status: ACTIVE
+file_role: Canonical rule definitions + worked example. Read when applying ARCHITECT to a project. For a quick table see ARCHITECT_SUMMARY.md. For per-rule three-lens annotations see ARCHITECT_PROTOCOL_INTEGRATED.md.
 ---
 
 # ARTICLE VI — ARCHITECT

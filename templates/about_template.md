@@ -2,8 +2,8 @@
 Created: [YYYY-MM-DD]
 Last Updated: [YYYY-MM-DD]
 Status: [ACTIVE / STAGING / PAUSED / ARCHIVED]
-Owner: ██████████
-Protocol: VERDICT + APEX/FORGE v1.0
+Owner: [your name]
+Protocol: STIX V2.0 — VERDICT + APEX + FORGE + CIPHER + ARCHITECT + RELAY + OBSERVE + RISK + ECON
 
 ================================================================
 GOAL — ONE SENTENCE

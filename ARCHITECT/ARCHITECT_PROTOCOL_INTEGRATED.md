@@ -1,10 +1,11 @@
 ---
 article: VI
-name: ARCHITECT — Strategic Problem Decomposition
+name: ARCHITECT — Strategic Problem Decomposition (Three-Lens Integrated Edition)
 perspective: CS Bachelor + Software Developer + Computer Engineer
 governing_value: JUDGMENT
 rule_range: A1–A20
 rule_count: 20
+file_role: Deep companion to ARCHITECT_PROTOCOL.md. Same 20 rules, but each rule is annotated with CS / Developer / Engineer perspectives, plus a step-by-step decomposition template (sections A–I). Read when teaching ARCHITECT or doing deep work. For canonical rules alone see ARCHITECT_PROTOCOL.md.
 ---
 
 # ARTICLE VI — ARCHITECT (Integrated Perspective)
