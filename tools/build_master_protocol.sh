@@ -1,6 +1,15 @@
 #!/bin/bash
 # Builds STIX_V2.0_MASTER_PROTOCOL.md — COMPLETE rulebook (summaries + individual rules)
+# WARNING: This OVERWRITES the existing master protocol file. It is a maintainer tool.
+# If you have local edits to STIX_V2.0_MASTER_PROTOCOL.md, back them up first.
 OUT="STIX_V2.0_MASTER_PROTOCOL.md"
+
+if [ -f "$OUT" ] && [ "${1:-}" != "--force" ]; then
+  echo "WARNING: $OUT already exists and will be overwritten."
+  echo "  To proceed: bash tools/build_master_protocol.sh --force"
+  echo "  To back up first: cp $OUT ${OUT}.backup && bash tools/build_master_protocol.sh --force"
+  exit 1
+fi
 
 cat > "$OUT" << 'HEADER'
 # STIX — Structured Tiers for Integrated Execution

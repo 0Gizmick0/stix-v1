@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 # STIX Setup — Create project structure for Claude Code / IDE users
 # Usage: bash tools/stix-setup.sh [project-name]
-# Idempotent: safe to run multiple times.
+#
+# SAFETY: This script NEVER overwrites existing files.
+# Every write operation is guarded by [ ! -f ] checks.
+# Running it twice on the same project produces zero changes.
+# It only creates files inside projects/ and session_state/ (both gitignored).
+# It never touches CLAUDE.md, STIX_V2.0_MASTER_PROTOCOL.md, or any repo framework files.
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -24,7 +29,7 @@ if [ ! -f "$PROJECT_DIR/about.md" ]; then
   cp "$REPO_ROOT/templates/about_template.md" "$PROJECT_DIR/about.md"
   sed -i.bak "s/\[Project Name\]/$PROJECT_NAME/g" "$PROJECT_DIR/about.md"
   sed -i.bak "s/\[YYYY-MM-DD\]/$(date +%Y-%m-%d)/g" "$PROJECT_DIR/about.md"
-  rm -f "$PROJECT_DIR/about.md.bak"
+  rm -f "$PROJECT_DIR/about.md.bak"  # sed backup only, never user data
   echo "  Created: projects/$PROJECT_NAME/about.md"
 else
   echo "  Exists:  projects/$PROJECT_NAME/about.md (skipped)"
