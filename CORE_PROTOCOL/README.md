@@ -8,10 +8,12 @@
 
 | File | Status | What it is |
 |---|---|---|
-| `APEX_FORGE_CIPHER_MASTER_PROTOCOL_v1_2026-03-26_1831.md` | Historical | First draft of the V1.0 master protocol |
-| `APEX_FORGE_CIPHER_MASTER_PROTOCOL_v2_2026-03-26_1932.md` | Historical | Second iteration |
-| `APEX_FORGE_CIPHER_MASTER_PROTOCOL_v3_2026-03-26_1932b.md` | Historical | Third iteration |
+| `APEX_FORGE_CIPHER_MASTER_PROTOCOL_v1_2026-03-26_1831.md` | Historical | V1.0 master protocol snapshot |
+| `APEX_FORGE_CIPHER_MASTER_PROTOCOL_v2_2026-03-26_1932.md` | Historical | V1.0 snapshot (same content as v1 — converged during same session) |
+| `APEX_FORGE_CIPHER_MASTER_PROTOCOL_v3_2026-03-26_1932b.md` | Historical | V1.0 snapshot (same content — all 4 converged to identical final state) |
 | `APEX_FORGE_CIPHER_MASTER_PROTOCOL_v4_2026-03-26_2046.md` | Historical (V1.1 final) | The final V1.1 master — 73 rules, superseded by V2.0 |
+
+> **Note:** v1 through v4 are byte-identical. All four iterations converged to the same final state during the March 26 session. They are kept as separate files for timestamp provenance (F11) — each filename records when that iteration was saved. If you need the V1.1 base rules, any of the four files will do; v4 is conventional.
 | `APPENDIX_C_ERROR_CLASSIFICATION.md` | Active reference | Error classification taxonomy (6 classes). Still current. |
 | `APPENDIX_D_OPERATING_CADENCE.md` | Active reference | Operating cadence (6 operational points). Still current. |
 | `Document_1_STIX_Authority_Ladder.md/.pdf` | Governance reference | 5-level authority ladder for all STIX documents. Still current. |

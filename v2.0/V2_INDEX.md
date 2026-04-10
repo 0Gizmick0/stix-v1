@@ -1,14 +1,16 @@
 ---
 name: STIX v2.0 Index
-type: proposed — Level 3 approved upgrade target
-status: NOT CURRENT LAW — awaiting Category 1 confirmation
+type: ARCHIVED — historical planning documents
+status: V2.0 IS NOW ACTIVE (ratified 2026-04-08). These are pre-ratification planning docs kept for provenance (F11).
 indexed: 2026-03-27
 provenance: F11 — source, timestamp, logic version recorded
 ---
 
-# STIX v2.0 — Approved Upgrade Target
-**Authority Level: 3 — Proposed ratified architecture. Not current law.**
-**Per Document 1 (Authority Ladder): If conflicts with Level 1, this is roadmap until ratified.**
+# STIX v2.0 — Planning Documents (Archived)
+
+> **This folder contains pre-ratification planning documents from the V1.1 -> V2.0 upgrade.**
+> **V2.0 is now live and active.** For current V2.0 rules, see [`../CURRENT_VERSION.md`](../CURRENT_VERSION.md) and [`../STIX_V2.0_MASTER_PROTOCOL.md`](../STIX_V2.0_MASTER_PROTOCOL.md).
+> These files are kept for provenance under F11 — they document the design decisions that led to V2.0.
 
 ---
 
@@ -46,6 +48,5 @@ provenance: F11 — source, timestamp, logic version recorded
 
 ---
 
-## Mandatory Gate Before Any V2 Work
-**See memory: project_v2_mandatory_gate.md**
-Category 1 items must be confirmed. 7 conflicts must be resolved. No exceptions.
+## Mandatory Gate Before Any V2 Work (Historical)
+Category 1 items were confirmed and 7 conflicts were resolved prior to V2.0 ratification (2026-04-08). See `CONFLICT_RESOLUTIONS.md` in this folder for resolution details.

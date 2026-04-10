@@ -46,26 +46,30 @@ When loaded into a capable model, STIX asks the AI to:
 
 ---
 
-## ⚡ 60-Second Quick Start
+## ⚡ Quick Start
 
-> **New users, start here:** if you're pasting STIX into a browser chat (Claude.ai, ChatGPT, Gemini), **use [`CLAUDE_LITE.md`](CLAUDE_LITE.md)** instead of the full `CLAUDE.md`, and follow the walkthrough in **[`GETTING_STARTED.md`](GETTING_STARTED.md)**. The lite file is a browser-safe variant that drops the filesystem-dependent bootstrap steps (audit logs, project files, mandatory budget questions) that silently fail in a chat UI. Same 141 rules, same three-lens discipline, same hard gates — just without the assumptions that break when there's no disk to read from. Two copy-pastes, under five minutes, no install.
->
-> **Claude Code / Cursor / IDE users:** keep using the full `CLAUDE.md` below. It's the filesystem-aware variant and assumes a working directory.
+### Option A — Browser chat (recommended for most users)
 
-**You need 2 files: `CLAUDE.md` and `STIX_V2.0_MASTER_PROTOCOL.md`.** That's it. Both are in this repo's root.
+**Works on any OS. No install. No git. Under 5 minutes.**
 
-### Option A — Claude.ai or ChatGPT (browser)
+1. **Download [`CLAUDE_LITE.md`](https://raw.githubusercontent.com/0Gizmick0/stix-v1/main/CLAUDE_LITE.md)** (right-click → Save As, or open and copy the contents).
+2. Open a **new chat** in Claude.ai, ChatGPT, Gemini, or any capable LLM.
+3. **Paste the entire contents** of `CLAUDE_LITE.md` as your first message. Send.
+4. The AI should respond with a load-confirmation block (`STIX V2.0 LOADED — browser mode`). If it doesn't, see [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
+5. Done. The AI is now governed by STIX.
 
-> **Most new users should use [`CLAUDE_LITE.md`](CLAUDE_LITE.md) instead** — see the "new users, start here" callout above. Option A below is the legacy full-file path using the filesystem-aware `CLAUDE.md`, which has bootstrap steps that silently fail in browser chats.
+`CLAUDE_LITE.md` is ~2,500 tokens — small enough to paste in any chat UI. It enforces the same 141 rules as the full version, just without filesystem-dependent bootstrap steps that don't work in a browser. See **[`GETTING_STARTED.md`](GETTING_STARTED.md)** for a detailed walkthrough with expected outputs and troubleshooting.
 
-1. Open `CLAUDE.md`, copy the entire contents, paste it as your first message in a new chat. Send.
-2. Attach `STIX_V2.0_MASTER_PROTOCOL.md` as a file in your next message (or paste it if your UI accepts long pastes).
-3. Send: *"Confirm you have STIX V2.0 (148 rules) loaded. Apply three-lens thinking to every decision from now on."*
-4. Done. The AI is now governed by STIX.
+### Option B — Claude Code / Cursor / IDE
 
-> **⚠️ Big-paste warning:** `STIX_V2.0_MASTER_PROTOCOL.md` is ~80,000 tokens. Some chat UIs reject pastes that large. If yours does, see [TROUBLESHOOTING.md → Gate 1](TROUBLESHOOTING.md#-gate-1--loading-stix-into-your-ai) for 4 alternatives. The simplest workaround is to paste **CLAUDE.md only** and let the AI ask you for specific rule definitions when it needs them.
+```bash
+git clone https://github.com/0Gizmick0/stix-v1.git
+cd stix-v1
+```
 
-### Option B — API (Python)
+Claude Code auto-loads `CLAUDE.md` from the working directory. Done.
+
+### Option C — API (Python)
 
 ```python
 import anthropic
@@ -81,9 +85,23 @@ response = client.messages.create(
 )
 ```
 
-### Option C — Claude Code
+### Option D — Full CLAUDE.md + master protocol (advanced)
 
-`git clone` this repo and open it. Claude Code auto-loads `CLAUDE.md` from the working directory. Done.
+If you want the full filesystem-aware version with session state, audit logs, and project management:
+
+1. Open `CLAUDE.md`, copy the entire contents, paste it as your first message in a new chat. Send.
+2. Attach `STIX_V2.0_MASTER_PROTOCOL.md` as a file in your next message (or paste it if your UI accepts long pastes).
+3. Send: *"Confirm you have STIX V2.0 (148 rules) loaded. Apply three-lens thinking to every decision from now on."*
+
+> **⚠️ Big-paste warning:** `STIX_V2.0_MASTER_PROTOCOL.md` is ~80,000 tokens. Some chat UIs reject pastes that large. If yours does, see [TROUBLESHOOTING.md → Gate 1](TROUBLESHOOTING.md#-gate-1--loading-stix-into-your-ai) for alternatives. The simplest workaround: just use Option A above.
+
+### Don't use git? Download as ZIP
+
+If you don't have git installed, you can download the entire repository as a ZIP file:
+
+**[Download ZIP](https://github.com/0Gizmick0/stix-v1/archive/refs/heads/main.zip)** — or click the green **Code** button on the repo page → **Download ZIP**.
+
+Unzip it anywhere. All files are plain text (`.md`). Open them in any text editor, Notepad, VS Code, or just read them on GitHub.
 
 ---
 
@@ -257,7 +275,7 @@ The full `CLAUDE.md` + `STIX_V2.0_MASTER_PROTOCOL.md` together are ~80,000+ toke
 ## Repository Layout
 
 ```
-stix-commercial/
+stix-v1/
 │
 ├── README.md                          ← You are here
 ├── CLAUDE.md                          ← System prompt (paste this into your AI)
@@ -286,7 +304,8 @@ stix-commercial/
 ├── templates/                         ← Project file templates (about.md, audit_log.md)
 └── tools/
     ├── champ.py                       ← PDF-to-text extractor (saves ~95% tokens)
-    └── build_master_protocol.sh       ← Maintainer script
+    ├── build_master_protocol.sh       ← Maintainer script (rebuilds master protocol)
+    └── stix-update.sh                 ← Maintainer script (checks for updates)
 ```
 
 ### File-naming convention
@@ -379,14 +398,14 @@ See [`STATUS.md`](STATUS.md) for the rigorous coverage data, the exact list of r
 **The principle, not a command:** reading a PDF as an image costs an LLM roughly 20 times more tokens than reading its extracted text. Before processing a PDF, extract it to text first. This applies regardless of which AI you're using, whether you have a shell, or which extractor you pick.
 
 **Who extracts the PDF depends on your environment:**
-- **In a browser chat (Claude.ai, ChatGPT, Gemini):** extract the PDF yourself before you paste. Use any tool — [`pdftotext`](https://en.wikipedia.org/wiki/Pdftotext) (from `poppler-utils`, installed everywhere), [pandoc](https://pandoc.org/), a cloud OCR service, or this repo's `./tools/champ.py`. Paste the extracted text, not the PDF.
+- **In a browser chat (Claude.ai, ChatGPT, Gemini):** extract the PDF yourself before you paste. Use any tool — [`pdftotext`](https://en.wikipedia.org/wiki/Pdftotext) (from `poppler-utils`), [pandoc](https://pandoc.org/), a cloud OCR service, or this repo's `./tools/champ.py`. Paste the extracted text, not the PDF.
 - **In Claude Code / Cursor / CLI tools:** the AI can invoke an extractor for you. It will use whatever is on the PATH. This repo ships `./tools/champ.py` as a reference implementation, but `pdftotext document.pdf -` works just as well.
 - **In the API with vision enabled:** you can skip this principle, but you'll pay the ~20× token cost. For large PDFs or repeated reads, extraction first is always cheaper.
 
 ### The reference implementation (`./tools/champ.py`)
 
 ```bash
-# Auto-detect text vs scanned PDF and extract accordingly
+# The simplest invocation — auto-detects PDF type, just works
 python ./tools/champ.py document.pdf
 
 # Force text extraction (fast, for text-based PDFs)
@@ -399,7 +418,31 @@ python ./tools/champ.py document.pdf --mode ocr
 python ./tools/champ.py document.pdf --mode images
 ```
 
-**You do not have to use CHAMP.** It exists because having a concrete reference implementation makes the principle easier to adopt. Any PDF-to-text tool on your system satisfies the principle equally well. The framework enforces the principle, not any particular tool.
+**Requirements:** Python 3.6+ (stdlib only — no `pip install` needed). CHAMP shells out to system tools depending on mode:
+- **text / auto:** `pdftotext` and `pdfinfo` (from `poppler-utils`)
+- **ocr:** `tesseract` (from `tesseract-ocr`) + `poppler-utils`
+- **images:** `pdfimages` (from `poppler-utils`)
+
+Install on Linux/macOS: `sudo apt install poppler-utils tesseract-ocr` (or `brew install poppler tesseract` on macOS).
+
+On Windows: use WSL, or install [poppler for Windows](https://github.com/oschwartz10612/poppler-windows/releases) and [Tesseract for Windows](https://github.com/UB-Mannheim/tesseract/wiki) and add them to your PATH. Or skip CHAMP entirely and use any PDF-to-text tool you prefer — the framework enforces the principle, not any particular tool.
+
+**You do not have to use CHAMP.** It exists because having a concrete reference implementation makes the principle easier to adopt. Any PDF-to-text tool on your system satisfies the principle equally well.
+
+---
+
+## Platform Support
+
+**STIX itself is plain text.** It works on any OS, any browser, any device that can paste text into a chat. There is nothing to install for the core framework.
+
+| Platform | STIX (paste into chat) | CHAMP (PDF tool) | Shell scripts (`tools/*.sh`) |
+|---|---|---|---|
+| **Linux** | Works | Works natively | Works natively |
+| **macOS** | Works | Works (`brew install poppler tesseract`) | Works natively |
+| **Windows** | Works | Works via [WSL](https://learn.microsoft.com/en-us/windows/wsl/install), or install [poppler](https://github.com/oschwartz10612/poppler-windows/releases) + [Tesseract](https://github.com/UB-Mannheim/tesseract/wiki) natively | Use WSL or [Git Bash](https://gitforwindows.org/) |
+| **Chromebook / mobile** | Works (browser path) | N/A — extract PDFs on another device first | N/A |
+
+**The shell scripts (`build_master_protocol.sh`, `stix-update.sh`) are maintainer tools, not user-facing.** You never need to run them to use STIX. If you do want to run them on Windows, use WSL or Git Bash.
 
 ---
 
@@ -413,6 +456,44 @@ STIX is useful anywhere a complex decision is being made under constraints. Docu
 - **DevOps gating** — Wrap deploy decisions in CIPHER + RISK gates
 - **Project planning** — Use ARCHITECT phase before any non-trivial build
 - **Personal decision-making** — Three-lens thinking works for non-software decisions too
+
+---
+
+## What a Real Session Looks Like
+
+Here's an actual governed exchange, trimmed for brevity. This is what you should expect to see after loading STIX:
+
+```
+USER: I want to add a caching layer to our API. Redis or Memcached?
+
+AI:
+CS lens: Both are O(1) for get/set. Redis adds data structures (sorted sets,
+streams, pub/sub) at the cost of single-threaded execution — throughput ceiling
+is ~100K ops/sec per instance. Memcached is multi-threaded, higher raw throughput
+for simple key-value, but no data structures beyond strings. Edge case: if cache
+entries exceed available memory, Redis eviction policies are configurable;
+Memcached uses LRU only.
+
+Dev lens: Redis is the industry default for new projects — broader ecosystem,
+better tooling, native TTL per key. Memcached wins only when the workload is
+pure key-value at extreme throughput (>500K ops/sec). For an API cache, Redis
+covers every realistic pattern. Rollback: swapping cache backends later is a
+1-day refactor if you wrap access behind an interface now.
+
+Engineer lens: Redis has one dependency (redis-server). Memcached has one
+dependency (memcached). Operational cost is equivalent. Redis persistence
+(RDB/AOF) is a bonus for cache warming after restarts — Memcached loses
+everything on restart. No meaningful cost difference.
+
+Confidence: HIGH — all three lenses converge on Redis. CS: superset
+functionality at equivalent complexity. Dev: industry default, better tooling.
+Engineer: equivalent cost, better durability. Per E13, HIGH = all three
+agree, no unverified assumptions. Proceed.
+
+Violations: none identified.
+```
+
+The key markers: three labeled lens blocks with real analysis (not labels), a confidence line that names which lenses agreed, and a violations line at the end.
 
 ---
 

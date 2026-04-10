@@ -58,7 +58,7 @@ If audit_log.md is missing: declare it, create stub from ./templates/audit_log_t
 
 --- STEP 3: LOAD SYSTEM STATE ---
 Initialize system state for your session.
-If no prior state exists: "no prior system state found — activating V1.1 defaults."
+If no prior state exists: "no prior system state found — activating V2.0 defaults."
 Continue. Do not block.
 
 --- STEP 3.5: ACTIVATE THREE PERSPECTIVES ---
@@ -156,7 +156,7 @@ Append to [PROJECT_ROOT]/audit_log.md:
 
 Date: [YYYY-MM-DD]
 Event: Session Bootstrap
-Protocol: V1.1 — VERDICT + APEX + FORGE + CIPHER + ARCHITECT
+Protocol: V2.0 — VERDICT + APEX + FORGE + CIPHER + ARCHITECT + RELAY + OBSERVE + RISK + ECON
 Files loaded: [list each file successfully read]
 Files missing: [list each file not found, or write "none"]
 Result: COMPLETE or PARTIAL or FAILED

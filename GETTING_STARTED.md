@@ -9,8 +9,10 @@ If you're using Claude Code, Cursor, or any IDE integration that auto-loads `CLA
 ## What you need
 
 1. A browser chat with a reasonably capable model (Claude Opus or Sonnet, GPT-4o, Gemini Pro — weaker/cheaper models will follow the framework inconsistently)
-2. This repository — specifically the file `CLAUDE_LITE.md` in the root
+2. The file `CLAUDE_LITE.md` — **[download it directly here](https://raw.githubusercontent.com/0Gizmick0/stix-v1/main/CLAUDE_LITE.md)** (right-click → Save As), or open it from the repo root
 3. About 5 minutes
+
+**Works on any OS** — Windows, macOS, Linux, Chromebook, phone. You're just pasting text into a chat. There is nothing to install.
 
 ---
 

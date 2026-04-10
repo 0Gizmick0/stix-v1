@@ -137,15 +137,19 @@ def extract_images(pdf_path, output_folder, start_page=None, end_page=None):
     """Extract images from PDF using pdfimages."""
     try:
         img_output_pattern = os.path.join(output_folder, 'page')
-        cmd = ['pdfimages', '-jpeg', pdf_path, img_output_pattern]
+        cmd = ['pdfimages', '-j']
 
         if start_page is not None and end_page is not None:
             cmd.extend(['-f', str(start_page), '-l', str(end_page)])
 
+        cmd.extend([pdf_path, img_output_pattern])
+
         subprocess.run(cmd, capture_output=True, check=True)
 
         # List extracted images
-        images = [f for f in os.listdir(output_folder) if f.startswith('page') and f.endswith('.jpg')]
+        images = [f for f in os.listdir(output_folder) if f.startswith('page') and (f.endswith('.jpg') or f.endswith('.ppm') or f.endswith('.pbm'))]
+        if not images:
+            print(f"WARNING: pdfimages found no embedded images in {pdf_path}. This PDF may be text-only — try --mode text instead.", file=sys.stderr)
         return images
 
     except FileNotFoundError:

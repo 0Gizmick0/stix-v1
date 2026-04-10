@@ -209,6 +209,26 @@ It doesn't ship in this repo. Older versions of the README referenced a `.pdf` t
 
 ---
 
+## 💻 Windows-Specific Issues
+
+### "Can I use STIX on Windows?"
+
+**Yes.** STIX is plain text files you paste into a chat. It works on any OS, any browser. There is nothing to install for the core framework.
+
+### "CHAMP / shell scripts don't work on Windows"
+
+The `tools/` directory contains Linux/macOS shell scripts. On Windows you have three options:
+
+1. **Use WSL** (recommended) — install [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install), then `sudo apt install poppler-utils tesseract-ocr python3` and run CHAMP normally.
+2. **Install native Windows builds** — [poppler for Windows](https://github.com/oschwartz10612/poppler-windows/releases) and [Tesseract for Windows](https://github.com/UB-Mannheim/tesseract/wiki), add them to your PATH, then run `python tools/champ.py file.pdf`.
+3. **Skip CHAMP entirely** — use any PDF-to-text tool you already have. The framework enforces the principle (extract before reading), not any particular tool.
+
+### "stix-update.sh won't run"
+
+`stix-update.sh` and `build_master_protocol.sh` are maintainer tools, not user-facing. You never need to run them. If you want to check for updates on Windows, just visit the [releases page](https://github.com/0Gizmick0/stix-v1/releases) or run `git pull` if you cloned the repo.
+
+---
+
 ## 🆘 Still Stuck?
 
 1. Re-read `CLAUDE.md` from the top — most "STIX isn't working" issues are bootstrap failures, not framework failures.
