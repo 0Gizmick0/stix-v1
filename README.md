@@ -62,6 +62,8 @@ When loaded into a capable model, STIX asks the AI to:
 
 ### Option B — Claude Code / Cursor / IDE
 
+> **Claude Code users:** There is a dedicated edition built specifically for Claude Code — [**stix-cc**](https://github.com/0Gizmick0/stix-cc). It ships with hooks pre-wired, session continuity across conversations, a one-command installer for Linux and Windows, and everything configured so you get a governed session from the first message. If you are using Claude Code as your primary tool, start there instead.
+
 ```bash
 git clone https://github.com/0Gizmick0/stix-v1.git
 cd stix-v1
