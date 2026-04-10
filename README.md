@@ -65,9 +65,18 @@ When loaded into a capable model, STIX asks the AI to:
 ```bash
 git clone https://github.com/0Gizmick0/stix-v1.git
 cd stix-v1
+bash tools/stix-setup.sh              # creates project files for session bootstrap
 ```
 
-Claude Code auto-loads `CLAUDE.md` from the working directory. Done.
+The setup script creates `projects/my-first-project/` with the `about.md` and `audit_log.md` that the bootstrap expects. Your project data stays local (gitignored). To name your project: `bash tools/stix-setup.sh my-project-name`
+
+Claude Code auto-loads `CLAUDE.md` from the working directory. Open the repo and start working.
+
+**Windows (no WSL)?** Create the directories manually:
+1. Create folder: `projects\my-first-project\`
+2. Copy `templates\about_template.md` to `projects\my-first-project\about.md`
+3. Copy `templates\audit_log_template.md` to `projects\my-first-project\audit_log.md`
+4. Edit both files: replace `[Project Name]` with your project name and `[YYYY-MM-DD]` with today's date
 
 ### Option C — API (Python)
 
